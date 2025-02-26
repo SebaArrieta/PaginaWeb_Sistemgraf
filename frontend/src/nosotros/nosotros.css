@@ -1,18 +1,6 @@
-@font-face {
-    font-family: 'GoodTimes';
-    src: url('../../public/font/GoodTimes.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-/* Cambia el color del fondo de toda la página */
-body {
-    margin: 50;
-    font-family: 'Arial', sans-serif;
-  }
-  
  /* Título */
-.title {
+.nosotros-title {
     font-size: 2em;
     margin-bottom: 20px;
     color: #fff;
@@ -20,29 +8,45 @@ body {
   }
   
   /* Contenedor principal */
-  .container {
+  .nosotros-container {
     text-align: center;
-    padding: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
     
   }
   
   /* Estilos para las tarjetas de misión y visión */
-  .card {
+  .nosotros-card {
     border-radius: 10px;
     margin-bottom: 20px;
     overflow: hidden;
   }
   
-  .card-body {
-    padding: 20px;
+  .nosotros-card-body {
+    padding: 10px;
+    background-color: #C0C0C0;
   }
   
-  /* Estilo para la imagen de las tarjetas */
-  .card-img {
-    object-fit: cover;
+  .nosotros-card-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: auto;
   }
+
+  .nosotros-card-img {
+    object-fit: contain;
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+.nosotros-card-text{
+  color: #000;
+  
+}
 
 .bg-darkblue {
   background-color: #022C43; /* Color de fondo específico para la sección principal, misión y visión */
@@ -52,23 +56,85 @@ body {
   background-color: #F0F6F8 /* Color de fondo específico para los nuevos contenedores */
 }
 
-/* Estilo específico para el título de "Nuestros Servicios" */
-.servicios-title {
+/* Estilo específico para el título de "Nuestros Valores" */
+.valores-title {
     color: #006084;
     font-family: 'GoodTimes', sans-serif;
 }
 
-/* Estilos personalizados para los inputs y textareas */
-.form-control {
-    background-color: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    color: #000; /* Color del texto */
-    box-shadow: none; /* Sin sombra */
+/* Contenedor específico para "Nuestros Valores" */
+.valores-container {
+  text-align: center;
+  padding: 15px;
+  max-width: 1500px;
+  margin: 0 auto; /* Centra el contenedor */
 }
 
 /* Clase personalizada para ajustar el tamaño del contenedor */
-.custom-service-card {
-    height: 200px; /* Ajusta la altura según sea necesario */
+.nosotros-custom-valor-card {
+    height: auto; /* Ajusta la altura según sea necesario */
     max-width: 100%; /* Ajusta el ancho según sea necesario */
+    background-color: #C0C0C0;
+    border: none; /* Sin borde */
+    padding: 15px;
 }
 
+/* Clase específica para ajustar las imágenes de "Nuestros Valores" */
+.valores-card-img {
+  object-fit: contain;
+  width: 200px;
+  max-width: 500px; 
+  height: auto;
+  border-radius: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.img-large {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    margin: 15px auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+  .nosotros-container {
+    flex-direction: column;
+  }
+  
+  .nosotros-custom-valor-card .col-md-4,
+  .nosotros-custom-valor-card .col-md-8 {
+    width: 100% !important;
+  }
+
+  .valores-container{
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .nosotros-card-img {
+    max-height: 100px;
+  }
+  .row.no-gutters {
+    flex-wrap: wrap !important;
+  }
+
+
+  .nosotros-custom-valor-card {
+    padding: 10px;
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .valores-card-img {
+    max-width: 100%; 
+    height: auto;
+  }
+ 
+}

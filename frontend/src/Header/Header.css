@@ -53,20 +53,40 @@
     display: inline-block;  /* Para que los elementos estén en línea */
     
 }
-
-.nav-links a {
+.enlace-custom1 {
+    color: yellow !important; /* Asegura que se aplique sobre otras reglas */
+}
+.enlace-custom1:hover {
+    color: gold;
+}
+.nav-links{
     display: inline-block; /* Para que el enlace tenga dimensiones */
     padding: 10px 15px 10px; 
     text-decoration: none; /* Quita el subrayado */
     color: #ffffff; /* Color del texto */
-    background-color: #006084; /* Fondo inicial */
+    background-color: #181818; /* Fondo inicial */
     border-radius: 5px; /* Bordes redondeados opcionales */
     transition: box-shadow 0.3s ease-in-out;
 }
+.nav-links {
+    transition: all 0.3s ease-in-out;
+}
 
-.nav-links a:hover {
-    color: #f2cd00; /* Cambia el color del texto */
-    box-shadow: 0 0 15px #f2cd00; /* Brillo alrededor */
+/* Border effect on hover */
+.nav-links:hover {
+    border-bottom: 2px solid white;
+}
+
+/* Highlight the active page */
+.active-link {
+    border: 2px solid white; /* Border around active nav link */
+    border-radius: 5px;
+    padding: 6px 10px; /* Adjust spacing */
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+.nav-links:hover {
+    text-shadow: 0px 0px 8px white;
 }
 
 .navbar-toggler {

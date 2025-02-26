@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+:root {
+    --color-negro: #181818; 
+    --color-azulOscuro: #022C43;
+    --color-azulSistemgraf: #006084; 
+    --color-amarilloSistemgraf: #F2CD00;   
+    --color-azulClaro: #F0F6F8;
+    --color-blanco: #ffffff;   
+  }
+
+.inicio-container {
+    width: 100%; /* Ajusta el ancho */
+    height: 755px; /* Ajusta la altura */
+    background-color: var(--color-azulOscuro); /* Color de fondo azul oscuro */
+    color: white; /* Color de texto */
+    padding: 40px; /* Espaciado interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.inicio-text {
+    width: 36%; /* Ocupa 60% del ancho para el texto */
+    text-align: left;
+    margin-left: 10%;
+}
+
+.inicio-text h1 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 45px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.btn-servicios {
+    background-color: var(--color-amarilloSistemgraf); /* Amarillo */
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+    transition: transform 0.4s ease-in-out;
+}
+
+.btn-servicios:hover {
+    transform: scale(1.1); 
+}
+
+.inicio-imagen {
+    width: 48%; /* La imagen ocupa 35% del contenedor */
+    display: flex;
+    justify-content: right;
+}
+
+.inicio-imagen img {
+    max-width: 1400px;
+    width: 100%;
+    height: auto;
+}
+
+
+/* Modalidad servicios */
+.modServicio {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-azulClaro);
+    color: black;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.modServicio-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.titulo {
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--color-azulSistemgraf);
+}
+
+.subtitulo {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de los ítems */
+.modServicio-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Cada ítem de servicio */
+.modServicio-item {
+    width: 22%;
+    text-align: center;
+}
+
+.icono-servicio {
+    font-size: 120px; /* Tamaño del icono */
+    color: var(--color-azulSistemgraf);
+    margin-bottom: 10px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.icono-servicio:hover {
+    transform: scale(1.2); /* 🔹 Aumenta el tamaño un 20% */
+}
+
+.modServicio-item h3 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+    color: var(--color-azulSistemgraf);
+    font-weight: bold;
+}
+
+.modServicio-item p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+/* Acerca de */
+.acercaDe-container {
+    width: 100%; /* Ajusta el ancho */
+    height: auto; /* Ajusta la altura */
+    background-color: var(--color-azulOscuro); /* Color de fondo azul oscuro */
+    color: white; /* Color de texto */
+    padding: 50px 20px; /* Espaciado interno */
+    align-items: center;
+    text-align: center;
+}
+
+.acercaDe-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+/* Imagen */
+.acercaDe-imagen {
+    width: 40%;
+}
+
+.acercaDe-imagen img {
+    width: 100%;
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+/* Texto */
+.acercaDe-texto {
+    margin-top: 10px;
+    width: 55%;
+    text-align: left;
+}
+
+.titulo-amarillo {
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--color-amarilloSistemgraf);
+}
+
+.acercaDe-texto p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Botón */
+.btn-leer-mas {
+    background-color: #FFD700;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.btn-leer-mas:hover {
+    transform: scale(1.1); 
+}
+
+
+/* Nuestras soluciones */
+.soluciones-container {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-azulSistemgraf);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Grilla de servicios */
+.servicios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Tarjeta de servicio */
+.servicio-card-custom {
+    background-color: transparent;
+    color: black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 400px;
+}
+
+/* Caja superior: imagen + título */
+.servicio-header {
+    background-color: var(--color-blanco);
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 300px;
+    overflow: hidden
+}
+
+/* Contenedor de la imagen */
+.servicio-img-container {
+    width: 100%;
+    height: 300px; /* Ajusta la altura de la imagen */
+    overflow: hidden;
+}
+
+/* Imagen dentro del contenedor */
+.servicio-img-custom {
+    width: 100%;
+    height: 95%;
+    object-fit: cover; /* 🔹 Asegura que la imagen llene el contenedor sin distorsión */
+}
+
+/* Contenedor del título */
+.servicio-title-container {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 🎯 Estilos del título */
+.servicio-title {
+    font-size: 17px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+}
+
+/* 🔹 Caja inferior: contenido */
+.servicio-content {
+    padding: 15px;
+    background-color: var(--color-blanco);
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+/* Texto de la descripción */
+.servicio-description {
+    flex-grow: 1;
+    font-size: 17px;
+    font-family: 'Rubik', sans-serif;
+    text-align: left;
+    color: black;
+}
+
+.btn-mas-info {
+    background-color: #FFC107;
+    border: none;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* 📌 Empuja el botón hasta el final */
+}
+
+.btn-mas-info:hover {
+    transform: scale(1.05);
+}
+
+
+/* Inicio Pantallas pequeñas */
+@media (max-width: 768px) {
+    .inicio-container {
+        flex-direction: column-reverse; /* Apila los elementos en columnas */
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .inicio-text {
+        width: 100%; /* El texto ocupa todo el ancho disponible */
+        text-align: center; /* Centra el texto en móviles */
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    .inicio-text h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .btn-servicios {
+        padding: 12px 18px; /* Reduce el tamaño del botón */
+    }
+
+    .inicio-imagen {
+        width: 80%; /* Reduce el ancho de la imagen */
+        justify-content: center; /* Centra la imagen */
+        position: relative;
+        top: -40px;
+    }
+
+    .inicio-imagen img {
+        height: auto;
+        width: 100%; /* Ajusta la imagen al ancho del contenedor */
+        max-width: 500px; /* Limita el tamaño máximo en móviles */
+    }
+
+}
+
+/* Modalidad Servicios pantallas pequeñas */
+@media (max-width: 768px) {
+    .modServicio-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modServicio-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .icono-servicio {
+        font-size: 140px; /* Tamaño del icono */
+        color: var(--color-azulSistemgraf);
+        margin-bottom: 10px;
+    }
+
+}
+
+/* Acerca de pantallas pequeñas */
+@media (max-width: 768px) {
+    .acercaDe-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .acercaDe-imagen {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .acercaDe-texto {
+        width: 100%;
+    }
+}

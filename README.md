@@ -4,8 +4,10 @@ Tecnologias usadas:
     S3,
     RDS
     NodeJs,
-    React
-
+    React,
+    nodemailer
+Comandos necesarios en el backend:
+    npm i dotenv
 Comandos de instalación para el frontend usados:
     npm i react-router
     npm install axios

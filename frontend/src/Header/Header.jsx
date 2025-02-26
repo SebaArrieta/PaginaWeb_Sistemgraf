@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FaBars } from 'react-icons/fa';
 import "./Header.css";
@@ -32,18 +32,21 @@ export default function Header() {
             {/* Links colapsables en pantallas pequeñas */}
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto"> 
-                <Nav.Link as={Link} to="/inicio" className="nav-links a">
+                <NavLink to="/inicio" className="nav-links" activeClassName="active-link">
                 Inicio
-                </Nav.Link>
-                <Nav.Link as={Link} to="/servicio" className="me-2 text-white enlace-custom1">
-                Servicios
-                </Nav.Link>
-                <Nav.Link as={Link} to="/blog" className="me-2 text-white enlace-custom1">
-                Blog
-                </Nav.Link>
-                <Nav.Link as={Link} to="/nosotros" className="me-2 text-white enlace-custom1">
-                Nosotros
-                </Nav.Link>
+                </NavLink>
+                <NavLink to="/servicios" className="nav-links" activeClassName="active-link">
+                    Servicios
+                </NavLink>
+                <NavLink to="/blog" className="nav-links" activeClassName="active-link">
+                    Blog
+                </NavLink>
+                <NavLink to="/nosotros" className="nav-links" activeClassName="active-link">
+                    Nosotros
+                </NavLink>
+                <NavLink to="/contact" className="me-2 text-warning enlace-custom1">
+                Contacto
+                </NavLink>
             </Nav>
             </Navbar.Collapse>
         
