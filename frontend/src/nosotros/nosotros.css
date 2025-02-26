@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'GoodTimes';
+    src: url('../../public/font/GoodTimes.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Cambia el color del fondo de toda la página */
+body {
+    margin: 50;
+    font-family: 'Arial', sans-serif;
+  }
+  
+ /* Título */
+.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: 'GoodTimes', sans-serif;
+  }
+  
+  /* Contenedor principal */
+  .container {
+    text-align: center;
+    padding: 25px;
+    
+  }
+  
+  /* Estilos para las tarjetas de misión y visión */
+  .card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Estilo para la imagen de las tarjetas */
+  .card-img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+.bg-darkblue {
+  background-color: #022C43; /* Color de fondo específico para la sección principal, misión y visión */
+}
+
+.bg-lightblue {
+  background-color: #F0F6F8 /* Color de fondo específico para los nuevos contenedores */
+}
+
+/* Estilo específico para el título de "Nuestros Servicios" */
+.servicios-title {
+    color: #006084;
+    font-family: 'GoodTimes', sans-serif;
+}
+
+/* Estilos personalizados para los inputs y textareas */
+.form-control {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    color: #000; /* Color del texto */
+    box-shadow: none; /* Sin sombra */
+}
+
+/* Clase personalizada para ajustar el tamaño del contenedor */
+.custom-service-card {
+    height: 200px; /* Ajusta la altura según sea necesario */
+    max-width: 100%; /* Ajusta el ancho según sea necesario */
+}
+

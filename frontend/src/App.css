@@ -1,27 +1,54 @@
+:root {
+  --color-negro: #181818; 
+  --color-azulOscuro: #022C43;
+  --color-azulSistemgraf: #006084; 
+  --color-amarilloSistemgraf: #F2CD00;   
+  --color-blanco: #ffffff;   
+}
+
+/* 
+  Para usar colores ya definidos, ejemplo:
+    background-color: var(--color-azulSitemgraf)
+*/
+
+@font-face {
+  font-family: 'GoodTimes';
+  /* src: 
+      url('../public/fonts/Good\ Times\ Rg.woff2') format('woff2'),
+      url('../public/fonts/GoodTimes.otf') format('opentype');*/
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'GoodTimes', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
-
+/*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+*/
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #015f83;
+  padding: 10px 10px;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App-link {
@@ -35,4 +62,57 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Hacer que el logo sea más pequeño */
+  .App-logo {
+    height: 15vmin; /* Menor tamaño en pantallas pequeñas */
+  }
+
+  /* Ajustes al encabezado */
+  .App-header {
+    padding: 10px;
+    flex-direction: column; /* Cambiar la dirección del flex para que los elementos estén apilados */
+    text-align: center; /* Centrar el texto */
+  }
+
+  /* Botón de tamaño adecuado para pantallas pequeñas */
+  .btn-btn-primary {
+    padding: 12px 20px; /* Hacer que el botón sea más grande en pantallas pequeñas */
+    font-size: 18px;
+  }
+  
+  /* Ajustes para el contenido */
+  .App-link {
+    font-size: 14px; /* Ajustar el tamaño del texto del enlace */
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas, como móviles */
+@media (max-width: 480px) {
+  .App-logo {
+    height: 10vmin; /* Reducir aún más el logo en dispositivos muy pequeños */
+  }
+
+  /* Reducir márgenes en el header */
+  .App-header {
+    padding: 5px;
+  }
+
+  /* Botón aún más grande para facilitar el toque */
+  .btn-btn-primary {
+    padding: 14px 25px;
+    font-size: 20px;
+  }
+}
+.btn-btn-primary{
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
