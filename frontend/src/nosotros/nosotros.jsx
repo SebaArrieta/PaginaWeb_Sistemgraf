@@ -100,21 +100,21 @@ const Nosotros = () => {
       {/* Contenedor de ancho completo para "Nuestros Valores" */}
       <div className="full-width-container bg-lightblue text-black">
         <div className="valores-container">
-          <h2 className="valores-title text-center mb-4"><strong>Nuestros Valores</strong></h2>
-          <div className="row ">
+          <h2 className="valores-title text-center"><strong>Nuestros Valores</strong></h2>
+          <div className="row">
             {valores.map((valor, index) => (
-              <div key={index} className="col-12 col-md-6 mb-4 " >
-                <div className="card nosotros-custom-valor-card" style={{ backgroundColor: "#C0C0C0" }}>
-                  <div className="row no-gutters ">
-                    <div className="col-md-4 ">
+              <div key={index} className="col-12 col-md-6 mb-2">
+                <div className="nosotros-card h-100" style={{ backgroundColor: "#C0C0C0" }}>
+                  <div className="row no-gutters">
+                    <div className="col-12 col-md-4">
                       <div className="nosotros-card-img-container">
                         <img src={imagen} className="valores-card-img" alt={valor.titulo} />
                       </div>
                     </div>
-                    <div className="col-8 ">
-                      <div className="nosotros-card-body" >
+                    <div className="col-12 col-md-8">
+                      <div className="nosotros-card-body">
                         <h5 className="nosotros-card-text text-center">{valor.titulo}</h5>
-                        <p className="nosotros-card-text"> {valor.descripcion}</p>
+                        <p className="nosotros-card-text">{valor.descripcion}</p>
                       </div>
                     </div>
                   </div>
@@ -127,19 +127,19 @@ const Nosotros = () => {
 
       {/* Contenedor de ancho completo para "Nuestro Equipo" */}
       <div className="full-width-container bg-darkblue text-white">
-        <div className="nosotros-container">
+        <div className="equipo-container">
           <h1 className="nosotros-title text-center"><strong>Nuestro Equipo</strong></h1>
           <div className="row">
             {equipo.map((miembro, index) => (
               <div className="col-md-6 mb-4" key={index}>
-                <div className="nosotros-card" style={{ backgroundColor: "#C0C0C0" }}>
+                <div className="nosotros-card h-100" style={{ backgroundColor: "#C0C0C0" }}>
                   <div className="row no-gutters">
-                    <div className="col-md-4">
+                    <div className="col-12 col-md-4">
                       <div className="nosotros-card-img-container">
-                        <img src={imagen} className="nosotros-card-img" alt={`Miembro ${index + 1}`} />
+                        <img src={imagen} className="equipo-card-img"  />
                       </div>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-12 col-md-8">
                       <div className="nosotros-card-body">
                         <h5 className="nosotros-card-text text-center"><strong>{miembro.nombre}</strong></h5>
                         <h6 className="mb-2 text-muted text-center">{miembro.rango}</h6>

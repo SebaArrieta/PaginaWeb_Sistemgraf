@@ -1,5 +1,4 @@
-
- /* Título */
+/* Título */
 .nosotros-title {
     font-size: 2em;
     margin-bottom: 20px;
@@ -15,6 +14,12 @@
     
   }
   
+  .equipo-container{
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+  }
   /* Estilos para las tarjetas de misión y visión */
   .nosotros-card {
     border-radius: 10px;
@@ -32,16 +37,32 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto;
+    height: 100%;
+    text-align: center;
   }
 
   .nosotros-card-img {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
-    max-width: 100px;
     height: auto;
     border-radius: 10px;
   }
+
+  .equipo-card-img{
+    object-fit: cover;
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  
+.valores-card-img {
+  object-fit: contain;
+  width: 200px;
+  max-width: 100%; 
+  height: auto;
+  border-radius: 10px;
+}
 
 .nosotros-card-text{
   color: #000;
@@ -67,26 +88,20 @@
   text-align: center;
   padding: 15px;
   max-width: 1500px;
-  margin: 0 auto; /* Centra el contenedor */
+  margin: 0 auto; 
+  
 }
 
 /* Clase personalizada para ajustar el tamaño del contenedor */
 .nosotros-custom-valor-card {
-    height: auto; /* Ajusta la altura según sea necesario */
-    max-width: 100%; /* Ajusta el ancho según sea necesario */
+    height: auto; 
+    max-width: 100%; 
     background-color: #C0C0C0;
     border: none; /* Sin borde */
     padding: 15px;
 }
 
-/* Clase específica para ajustar las imágenes de "Nuestros Valores" */
-.valores-card-img {
-  object-fit: contain;
-  width: 200px;
-  max-width: 500px; 
-  height: auto;
-  border-radius: 10px;
-}
+
 
 .text-center {
   text-align: center;
@@ -102,39 +117,27 @@
 }
 
 @media (max-width: 768px) {
-
-  .nosotros-container {
-    flex-direction: column;
-  }
-  
-  .nosotros-custom-valor-card .col-md-4,
-  .nosotros-custom-valor-card .col-md-8 {
-    width: 100% !important;
-  }
-
-  .valores-container{
+  .nosotros-card-body {
+    text-align: center;
     padding: 10px;
-    width: 100%;
-    margin: 0 auto;
   }
 
-  .nosotros-card-img {
-    max-height: 100px;
-  }
-  .row.no-gutters {
-    flex-wrap: wrap !important;
-  }
-
-
-  .nosotros-custom-valor-card {
-    padding: 10px;
-    width: 90%;
-    max-width: 90%;
+  .nosotros-card-img-container {
+    margin-bottom: 10px;
   }
 
   .valores-card-img {
-    max-width: 100%; 
+    width: 100%;
+    max-width: 300px;
     height: auto;
   }
- 
+
+  .valores-container{
+    max-width: 500px;
+   
+  }
+  .equipo-container{
+    max-width: 400px;
+  }
+  
 }
