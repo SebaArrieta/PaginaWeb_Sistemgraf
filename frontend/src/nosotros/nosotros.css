@@ -1,3 +1,4 @@
+
 /* Título */
 .nosotros-title {
     font-size: 2em;
@@ -11,14 +12,14 @@
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
-    
   }
   
   .equipo-container{
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
+    border-radius: 50px;
   }
   /* Estilos para las tarjetas de misión y visión */
   .nosotros-card {
@@ -26,10 +27,13 @@
     margin-bottom: 20px;
     overflow: hidden;
   }
-  
+
+  .valores-card {
+    border: 2px solid #d3d3d3; 
+  }
+
   .nosotros-card-body {
     padding: 10px;
-    background-color: #C0C0C0;
   }
   
   .nosotros-card-img-container {
@@ -52,7 +56,7 @@
     object-fit: cover;
     width: 150px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 75px;
   }
 
   
@@ -66,7 +70,6 @@
 
 .nosotros-card-text{
   color: #000;
-  
 }
 
 .bg-darkblue {
@@ -96,7 +99,6 @@
 .nosotros-custom-valor-card {
     height: auto; 
     max-width: 100%; 
-    background-color: #C0C0C0;
     border: none; /* Sin borde */
     padding: 15px;
 }
@@ -109,10 +111,10 @@
 
 .img-large {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     height: auto;
     object-fit: cover;
-    margin: 15px auto;
+    margin: 15px;
     display: block;
 }
 

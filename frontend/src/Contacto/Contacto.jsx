@@ -1,10 +1,60 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Contacto.css";
 import ContactSection from "./ContactSection";
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+
+    // Validación básica en frontend
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setLoading(false);
+      setSuccess("error");
+      return alert("Todos los campos son obligatorios.");
+    }
+
+    try {
+      const response = await fetch("http://localhost:5001/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      setLoading(false);
+
+      if (response.ok) {
+        setSuccess("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSuccess("error");
+      }
+    } catch (error) {
+      setLoading(false);
+      setSuccess("error");
+    }
+  };
+
     return (
       <>
-      <div className="container-new">
+      <div className="container-new" style={{ paddingTop: '100px' }}>
         <div class="row">
           <div className="col-md-4 contact-form">
             <h3>¡Contactanos!</h3>

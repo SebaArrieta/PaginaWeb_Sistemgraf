@@ -11,7 +11,7 @@
 
 .inicio-container {
     width: 100%; /* Ajusta el ancho */
-    height: 755px; /* Ajusta la altura */
+    height: 900px; /* Ajusta la altura */
     background-color: var(--color-azulOscuro); /* Color de fondo azul oscuro */
     color: white; /* Color de texto */
     padding: 40px; /* Espaciado interno */
@@ -200,14 +200,54 @@
     transform: scale(1.1); 
 }
 
+.acercaDe-caja {
+    max-width: 1200px;
+    background-color: white; /* Fondo blanco para destacar */
+    color: black;
+    padding: 20px;
+    margin: 30px auto 0; /* Espaciado con la parte superior */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
 
-/* Nuestras soluciones */
+.caja-imagen {
+    display: flex;
+    justify-content: center; /* Centrar la imagen */
+    margin-bottom: 10px; /* Espaciado entre la imagen y el título */
+    justify-content: flex-start;
+}
+
+.caja-imagen img {
+    width: 50px; /* Ajusta el tamaño según prefieras */
+    height: 50px;
+    background: white;
+    object-fit: cover; /* Mantiene la imagen cuadrada sin deformarla */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+.caja-titulo {
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-azulOscuro);
+    margin-bottom: 10px;
+}
+
+.acercaDe-caja p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* Nuestras Soluciones */
 .soluciones-container {
     width: 100%;
     height: auto;
     margin: auto;
     padding: 50px 20px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), var(--color-azulOscuro));
+    background: linear-gradient(to top, var(--color-azulClaro) 30%, var(--color-azulOscuro) 100%);
     text-align: center;
 }
 
@@ -218,14 +258,33 @@
     color: var(--color-blanco);
 }
 
+.slick-list {
+    overflow: hidden; /* Permite que las tarjetas sean visibles aunque estén fuera del centro */
+}
 
-/* Estilos del Slider */
+/* 📌 Estilos del Slider */
 .slick-slide {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    margin-top: 70px;
-    height: 600px;
+    margin-top: 50px;
+    height: 600px; /* Reducimos la altura de las tarjetas */
     transition: transform 0.5s ease-in-out;
+    overflow: hidden !important;
+}
+
+/* 🔹 Asegurar que la tarjeta activa se destaque y quede bien alineada */
+.slick-center .servicio-card {
+    transform: scale(1.1); /* Aumenta ligeramente la tarjeta activa */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Ajuste para evitar que las tarjetas se vean desalineadas */
+.servicio-card {
+    margin: 0 auto;
+    max-width: 300px; /* Define un ancho estándar para evitar que cambien de tamaño */
+    height: 450px;
 }
 
 .slick-prev,
@@ -251,37 +310,44 @@
     font-size: 50px;
 }
 
+/* 📌 Tarjetas de servicio */
 .servicio-card {
     background: white;
-    text-align: center;
-    width: 400px;
-    height: 500px;
+    text-align: left; /* Alinear texto a la izquierda */
+    max-width: 380px; /* Ajuste de ancho */
+    height: 550px; /* Hacer la tarjeta más alargada */
     transition: all 0.5s ease;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Aumentar tamaño de la tarjeta activa */
-.servicio-item.active .servicio-card {
-    transform: scale(1.15);
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Contenedor de imagen */
-.servicio-img-container {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
     overflow: hidden;
 }
 
-/* Imagen */
-.servicio-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
+/* Efecto para la tarjeta activa */
+.servicio-item.active .servicio-card {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilo del título */
+/* 📌 Imagen de la tarjeta */
+.servicio-img-container {
+    width: 100%;
+    height: 160px; /* Reducimos el tamaño de la imagen */
+    overflow: hidden;
+}
+
+.servicio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 📌 Contenedor del título */
+.servicio-title-container {
+    height: 80px;
+    padding: 15px 20px;
+}
+
+/* 📌 Título */
 .servicio-title {
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
@@ -289,32 +355,249 @@
     color: #222;
 }
 
-/* Estilo del texto */
-.servicio-description {
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-    color: #555;
-    height: 160px;
-    margin-bottom: 15px;
+/* 📌 Contenedor de la descripción */
+.servicio-texto {
+    flex-grow: 1;
+    width: 350px;
+    height: 250px;
+    overflow: hidden; /* 🔹 Oculta el exceso de texto */
+    margin: auto;
+    text-overflow: ellipsis;
 }
 
-/* Botón "Leer más" */
+.servicio-description {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.servicio-boton {
+    height: 50px; /* 🔹 Espacio reservado para el botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 📌 Botón "Leer más" */
 .btn-mas-info {
-    background-color: var(--color-azulSistemgraf);
-    color: white !important;
-    text-decoration: none !important; 
-    padding: 10px 15px;
+    background-color: var(--color-amarilloSistemgraf); /* Color oscuro para parecerse al de la referencia */
+    color: black !important;
+    text-decoration: none !important;
+    padding: 8px 12px;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 
 .btn-mas-info:hover {
     transform: scale(1.05);
 }
+
+/* Socios Estrategicos */
+.socios-logos {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Espacio entre logos */
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.socio-logo {
+    height: 80px; /* Ajusta la altura según lo necesites */
+    object-fit: contain;
+}
+
+.bsolutions {
+    padding: 10px 20px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.strategy {
+    font-weight: bold;
+}
+
+/* Mapa */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+/* Contenido del mapa */
+.map-content {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Ajusta la altura del mapa */
+    background-color: #eaeaea; /* Color de fondo de respaldo */
+}
+
+/* Iframe del mapa */
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.contacto-container {
+    width: 100%;
+    padding: 50px 20px;
+    background: var(--color-azulOscuro);
+    text-align: center;
+}
+
+
+
+
+
+
+.contacto-container {
+    width: 100%;
+    background-color: var(--color-azulOscuro);
+    color: white;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+/* 📌 Encabezado centrado */
+.contacto-header {
+    text-align: center;
+    margin-bottom: 30px; /* Espaciado entre el encabezado y el contenido */
+}
+
+.contacto-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-amarilloSistemgraf);
+}
+
+.contacto-header p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* 📌 Distribución de los elementos */
+.contacto-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 60px;
+}
+
+/* 📧 Formulario de contacto */
+.contacto-form {
+    width: 50%;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* 🔹 Campos de entrada */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.textarea {
+    height: 120px;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-amarilloSistemgraf);
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-enviar:hover {
+    transform: scale(1.05);
+}
+
+/* Información de contacto */
+.contacto-info {
+    width: 60%;
+    text-align: center;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contacto-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contacto-item .icono {
+    font-size: 24px;
+    color: var(--color-amarilloSistemgraf);
+    margin-bottom: 10px;
+}
+
+.contacto-item h3 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.contacto-item a, .contacto-item p {
+    font-family: 'Rubik', sans-serif;
+    color: var(--color-azulSistemgraf);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contacto-item a:hover {
+    text-decoration: underline;
+}
+
+/* Ajuste para letra blanca en el párrafo */
+.letra-blanca {
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
 
 /* Inicio Pantallas pequeñas */
 @media (max-width: 768px) {
@@ -392,5 +675,99 @@
 
     .acercaDe-texto {
         width: 100%;
+    }
+}
+
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Nuestras soluciones */
+@media (max-width: 768px) {
+    .socios-logos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+/* Contacto */
+@media (max-width: 900px) {
+    .contacto-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .contacto-form,
+    .contacto-info {
+        width: 100%;
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slick-slide {
+        display: flex !important;
+        justify-content: center; /* 🔹 Centra las tarjetas */
+        align-items: center;
+        overflow: hidden !important;
+    }
+
+    /* Ajustar tamaño de la tarjeta en móvil */
+    .servicio-card {
+        width: 94% !important; /* 🔹 Hace que ocupe casi toda la pantalla */
+        max-width: 350px; /* 🔹 Controlar el tamaño máximo */
+    }
+
+    /* Ajustar imagen dentro de la tarjeta */
+    .servicio-img-container {
+        height: 180px; /* 🔹 Asegura que la imagen se vea bien */
+    }
+
+    /* 📌 Contenedor del título */
+    .servicio-title-container {
+        height: 80px;
+        padding: 15px 20px;
+    }
+
+    /* 📌 Título */
+    .servicio-title {
+        font-family: 'Rubik', sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        color: #222;
+    }
+
+    .servicio-texto {
+        flex-grow: 1;
+        width: 290px;
+        height: 230px;
+        overflow: hidden; /* 🔹 Oculta el exceso de texto */
+        margin: auto;
+        text-overflow: ellipsis;
+    }
+
+    .servicio-boton {
+        height: 50px; /* 🔹 Espacio reservado para el botón */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Ajuste del botón */
+    .btn-mas-info {
+        width: 90%; /* 🔹 Botón ocupa todo el ancho */
+        text-align: center;
+    }
+
+    body {
+        overflow-x: hidden; /* 🔹 Evita el desplazamiento horizontal en todo el sitio */
     }
 }

@@ -9,12 +9,12 @@ router.delete("/services/deleteService/:id", verifyToken, ServiceController.dele
 
 const getServices = () =>
     axios
-        .get(`http://localhost:5000/services/getServices`)
+        .get(`http://localhost:5001/services/getServices`)
         .then((res) => res.data);
 
 const getBlogs = () =>
     axios
-        .get(`http://localhost:5000/blog/getBlogs`)
+        .get(`http://localhost:5001/blog/getBlogs`)
         .then((res) => res.data);
 
 export {getBlogs, getServices}

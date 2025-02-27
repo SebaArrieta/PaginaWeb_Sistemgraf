@@ -2,15 +2,17 @@
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #0B2B3E;
+    
 }
 
 .container-new {
     flex-direction: row;
-    /* flex-wrap: wrap; */ /* Remover esta línea si deseas forzar la fila */
+    flex-wrap: wrap; 
     min-height: 50vh;
     padding: 20px;
     max-width: 100%;
     background-color: #063e5c;
+    
 }
 .contact-form {
     background-color: #00334E;
@@ -27,6 +29,7 @@
 }
 .container-new .row{
     padding: 30px;
+    width: 100%;
     background-color: #00334E;
 }
 .contact-form img {
@@ -74,10 +77,8 @@
     border: none;
     border-radius: 10px;
 }
-.contacts2 {
-    padding: 60px 0;
-}
 .card {
+    background: #3eadd5;
     padding: 20px;
     text-align: center;
     border: none;
@@ -91,24 +92,48 @@
     color: #007bff;
     display: block;
     margin-bottom: 10px;
+}.contacts2 {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0B2B3E 0%, #1E3A56 100%);
+    color: white;
 }
+
+.mbr-section-head {
+    margin-bottom: 30px;
+}
+
+.mbr-section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.mbr-section-subtitle {
+    font-size: 1.2rem;
+    color: #CFE6EE;
+}
+
 .contact-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
 }
 
 .contact-card:hover {
     transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .contact-card.copied {
-    background-color: #d1f5d3; /* Verde claro */
+    background-color: rgba(100, 200, 100, 0.8);
+    border: 1px solid #fff;
 }
 
 .copy-message {
@@ -116,19 +141,38 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(43, 67, 39, 0.7);
-    color: white;
-    padding: 5px 10px;
+    background-color: rgba(255, 215, 0, 0.8);
+    color: black;
+    padding: 6px 12px;
     border-radius: 5px;
     font-size: 12px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.copy-message.hidden {
+    opacity: 0;
+}
+
+.contact-card a {
+    color: #FFD700;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-card a:hover {
+    color: #FFEA70;
 }
 
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
+    .contacts2 {
+        padding: 40px 20px;
     }
-    .map {
-        margin: 20px 0 0 0;
-        width: 100%;
+    .mbr-section-title {
+        font-size: 2rem;
+    }
+    .mbr-section-subtitle {
+        font-size: 1rem;
     }
 }

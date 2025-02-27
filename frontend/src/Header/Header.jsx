@@ -11,7 +11,7 @@ export default function Header() {
       expand="lg"                      // Se expande a "horizontal" a partir de lg
       style={{ backgroundColor: "#181818" }} 
       variant="dark"   
-      className='navbar-container'           // Ajusta los colores de texto y toggler al modo "dark"
+      className='navbar-container fixed-top'           // Ajusta los colores de texto y toggler al modo "dark"
     >
     
             {/* Marca (logo + texto) */}
@@ -32,20 +32,41 @@ export default function Header() {
             {/* Links colapsables en pantallas pequeñas */}
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto"> 
-                <NavLink to="/inicio" className="nav-links" activeClassName="active-link">
+                <NavLink to="/inicio" 
+                  className={({ isActive }) => 
+                    isActive ? "nav-links active-link filled-link" : "nav-links"
+                  }
+                >
                 Inicio
                 </NavLink>
-                <NavLink to="/servicios" className="nav-links" activeClassName="active-link">
+                <NavLink to="/servicios" 
+                  className={({ isActive }) => 
+                    isActive ? "nav-links active-link filled-link" : "nav-links"
+                  }
+                >
                     Servicios
                 </NavLink>
-                <NavLink to="/blog" className="nav-links" activeClassName="active-link">
+                <NavLink to="/blog" 
+                  className={({ isActive }) => 
+                    isActive ? "nav-links active-link filled-link" : "nav-links"
+                  }
+                >
                     Blog
                 </NavLink>
-                <NavLink to="/nosotros" className="nav-links" activeClassName="active-link">
-                    Nosotros
+                <NavLink to="/nosotros"                  
+                className={({ isActive }) => 
+                    isActive ? "nav-links active-link filled-link" : "nav-links"
+                  }
+                >
+                    Sobre Sistemgraf
                 </NavLink>
-                <NavLink to="/contact" className="me-2 text-warning enlace-custom1">
-                Contacto
+                <NavLink
+                  to="/contact"
+                  className={({ isActive }) => 
+                    isActive ? "nav-links active-link filled-link" : "nav-links"
+                  }
+                >
+                  Contacto
                 </NavLink>
             </Nav>
             </Navbar.Collapse>

@@ -8,6 +8,7 @@ import Header from "./Header/Header";
 import Footer from './Footer/Footer';
 import Nosotros from './nosotros/nosotros';
 import Servicios from './Servicio/Servicio';
+import Blogs from './Blog/Blog';
 function App() {
   return (
     <Router> 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<ContactForm/>} />
           <Route path="/nosotros" element={<Nosotros/>} />
           <Route path="/servicios" element={<Servicios/>} />
+          <Route path="/blog" element={<Blogs/>} />
           {/* Rutas protegidas */}
 
         </Routes>

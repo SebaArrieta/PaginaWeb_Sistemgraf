@@ -1,179 +1,130 @@
-@font-face {
-  font-family: 'GoodTimes';
-  src: url('../../public/font/GoodTimes.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+
+/* Estilos generales para la sección de servicios */
+.container-new {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Cambia el color del fondo de toda la página */
-body {
-    margin: 50;
-    font-family: 'Arial', sans-serif;
+/* Animación Fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
- /* Título */
-.nosotros-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #fff;
-    font-family: 'GoodTimes', sans-serif;
-  }
-  
-  /* Contenedor principal */
-.nosotros-container {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-}
-  
-  /* Estilos para las tarjetas de misión y visión */
-  .nosotros-card {
-    border-radius: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
-  }
-  
-  .nosotros-card-body {
-    padding: 20px;
-    background-color: #C0C0C0;
-  }
-  
-  .nosotros-card-img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  .nosotros-card-img {
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
-  }
-
-.nosotros-card-text{
-  color: #000;
-}
-
-.bg-darkblue {
-  background-color: #022C43; /* Color de fondo específico para la sección principal, misión y visión */
-}
-
-.bg-lightblue {
-  background-color: #F0F6F8 /* Color de fondo específico para los nuevos contenedores */
-}
-
-/* Estilo específico para el título de "Nuestros Valores" */
-.valores-title {
-    color: #006084;
-    font-family: 'GoodTimes', sans-serif;
-}
-
-
-
-/* Clase personalizada para ajustar el tamaño del contenedor */
-.nosotros-custom-valor-card {
-    height: 280px; /* Ajusta la altura según sea necesario */
-    max-width: 100%; /* Ajusta el ancho según sea necesario */
-    background-color: #C0C0C0;
-    border: none; /* Sin borde */
-    padding: 15px;
-}
-
-.text-center {
-  text-align: center;
-}
-.ServicioImagen {
-  width: 100%;  /* Se ajusta al ancho de la columna */
-  height: 100%; /* Ocupa todo el alto de la columna */
-  max-height: 300px; /* Evita que crezca demasiado */
-  object-fit: contain; /* Asegura que la imagen no se recorte ni se deforme */
-  display: block; /* Evita espacios extra alrededor de la imagen */
-  margin: auto; /* Centra la imagen dentro de la columna */
-}
-.img-large {
-  width: 350px;
-  height: 300px;
-  max-width: 1000px; /* Ajusta este valor según sea necesario */
-  object-fit: cover;
-  margin: 15px;
-}
-.mt-4 {
-  background-color: #006084; /* Azul oscuro */
-  padding: 20px; /* Agrega espacio para mejorar la visibilidad */
-  margin: 0; /* Evita espacios innecesarios debajo */
-  width: 100%; 
-  margin-top: 0 !important; /* Eliminar cualquier margen */
-  /* Asegura que ocupe todo el ancho */
-}
-.container-fluid, .container {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-.servicio-img {
-  width: 100%;  /* Make the image responsive inside the card */
-  max-height: 250px; /* Set a reasonable height limit */
-  object-fit: cover; /* Ensures images fill the space without distortion */
-  border-top-left-radius: 8px; /* Matches Bootstrap's card border radius */
-  border-top-right-radius: 8px;
-}
-.descripcion {
-  background-color: #ffffff; /* Fondo blanco */
-  color: #006084; /* Texto azul oscuro */
-  padding: 15px; /* Espaciado para que se vea mejor */
-  border-radius: 8px; /* Esquinas redondeadas (opcional) */
-}
-@media (max-width: 768px) {
-  .mt-4 {
-    padding: 10px; /* Menos padding en pantallas chicas */
-  }
-  
-  .descripcion {
-    padding: 10px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.servicio-card {
+.hidden {
+  opacity: 0;
+  background-color: #007BFF; /* Azul */
+  width: 100%; /* Asegura que ocupe el espacio de la imagen */
+  height: 100%; /* Mantiene el tamaño correcto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Aplicar la animación solo cuando la imagen esté cargada */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+  opacity: 1;
+}
+/* Tarjeta de servicio */
+.servicio-card-serv {
+  width: 100%;
+  max-width: 500px; /* Evita tarjetas muy grandes */
+  min-height: 350px;
   border: none;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0; /* Inicialmente invisible */
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
-.servicio-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+/* Imagen dentro de la tarjeta */
+.servicio-img-serv {
+  width: 100%;
+  height: auto;
+  max-height: 220px; /* Limita la altura */
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-.servicio-img {
-  height: 200px; /* Adjust based on your needs */
-  object-fit: cover; /* Keeps the image proportionate */
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.card-body {
-  text-align: center;
+/* Cuerpo del servicio */
+.servicio-card-serv .card-body {
   padding: 20px;
+  text-align: center;
 }
 
-.card-title {
-  color: #006084;
-  font-size: 1.4rem;
+/* Títulos de los servicios (en blanco) */
+.servicio-card-serv .card-title {
+  font-size: 20px;
   font-weight: bold;
+  color: white; /* Blanco para mejor contraste */
+  margin-bottom: 12px;
 }
 
-.card-text {
-  color: #333;
+/* Texto del servicio */
+.servicio-card-serv .card-text {
+  font-size: 16px;
+  color: #333; /* Color oscuro para mejor legibilidad */
+  line-height: 1.6;
 }
 
-.btn-primary {
-  background-color: #006084;
-  border: none;
+/* Diferentes colores de fondo para alternar */
+.servicio-card-serv:nth-child(3n + 1) {
+  background-color: #0078D7; /* Azul intenso */
 }
 
-.btn-primary:hover {
-  background-color: #004a63;
+.servicio-card-serv:nth-child(3n + 2) {
+  background-color: #E44D26; /* Rojo anaranjado */
+}
+
+.servicio-card-serv:nth-child(3n + 3) {
+  background-color: #34A853; /* Verde fuerte */
+}
+
+/* Efecto hover */
+.servicio-card-serv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .servicio-card-serv {
+    max-width: 100%;
+  }
+
+  .container-new {
+    padding: 20px;
+  }
+}
+/* Estilo del subtítulo en negrita con cuadrado */
+.subtitulo {
+  font-weight: bold;
+  color: #444; /* Color del texto */
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+/* Cuadrado de color */
+.cuadrado {
+  width: 10px;
+  height: 10px;
+  background-color: #0078D7; /* Color del cuadrado */
+  display: inline-block;
+  margin-right: 6px;
+  border-radius: 2px; /* Bordes redondeados */
 }
