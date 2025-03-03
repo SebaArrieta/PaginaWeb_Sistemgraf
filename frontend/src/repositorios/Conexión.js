@@ -17,4 +17,13 @@ const getBlogs = () =>
         .get(`http://localhost:5001/blog/getBlogs`)
         .then((res) => res.data);
 
-export {getBlogs, getServices}
+const getBlog = async (id) =>{
+    const response = await axios.get(`http://localhost:5001/blog/getBlog`, {
+        params: {
+          ID: id,
+        },
+      })
+    return response?.data
+}
+
+export {getBlogs, getServices, getBlog}

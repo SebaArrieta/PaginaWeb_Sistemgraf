@@ -1,0 +1,26 @@
+.loader {
+    width: fit-content;
+    font-size: 40px;
+    font-family: system-ui,sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #f2ce0000;
+    -webkit-text-stroke: 1px #F2CD00;
+    background: conic-gradient(#F2CD00 0 0) 0/0% 100% no-repeat text;
+    animation: l1 1s linear infinite;
+  }
+    
+.loader:before {
+    content: "Cargando";
+}
+
+@keyframes l1 {
+    to{background-size: 120% 100%}
+}
+
+.img-loader{
+    display: flex;
+    align-items: center;
+    height: 250px;
+    gap: 5px;
+}

@@ -1,12 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+html, body {
+    overflow-x: hidden;
+}
 .navbar {
     background-color: #181818; /* Color de fondo */
-    padding: 5px 5px;
-    height: 120px;
+    padding: 10px 20px;
+    width: 100%; /* Asegura que ocupa todo el ancho de la pantalla */
+    max-width: 100%; /* Evita que se salga de la pantalla */
+    min-height: 80px; /* Altura mínima */
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed; /* Fijo en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin:auto;
 }
-
 .enlace-custom1 {
     color: #ffffff;               /* Texto blanco */
     transition: color 0.2s ease; /* Transición suave al cambiar de color */
@@ -16,14 +26,82 @@
     color: #f2cd00;
 }
 
+/* Contenedor de iconos y botón */
+.social-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-left: 180px;
+    gap: 15px; /* Espacio entre iconos y botón */
+  }
+  
+  /* Asegurar que los íconos tengan el mismo alineado */
+  .social-icons {
+    color: white !important;
+    display: flex;
+    gap: 10px; /* Espaciado entre iconos */
+    margin:auto;
+  }
+
+  .social-icons a {
+    color: white !important;
+
+  }
+  
+  /* Estilos del botón de contacto */
+  .contact-button {
+    display: inline-block;
+    background-color: #f2cd00; /* Color amarillo */
+    color: black !important;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #e5be00;
+    color: black !important;
+    transform: scale(1.05);
+  }
+  
+
 /* Contenedor de la barra */
 .navbar-container {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: "flex"; 
+    justify-content: "center";  /* Centra horizontalmente */
+    align-items: "center";  /* Centra verticalmente */
+    background-color: "#181818"; 
+    width: "100%"; 
+    padding: "10px 20px"; 
 }
+
+.contenedor-navbar {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    max-width: 100%; /* Ensures it doesn't shrink too much */
+    
+}
+.contenedor-navbar > * {
+    flex: 1; /* Makes each child take equal space */
+}
+.contenedor-img {
+    display: flex;
+    align-items: center;
+
+}
+
+.contenedor-botones {
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: center; 
+    gap: 40px;  /* Centra los elementos verticalmente */   
+    margin: auto;
+}
+
 .navbar-brand {
     height: 70px;
     display: flex;
@@ -34,14 +112,14 @@
 .logo {
     display: flex;
     align-items: center;
-    height: 150px;
+    height: 30px;
     gap: 5px;
 }
 
 .logo img {
     height: 30px;
-    margin-right: 15px;
 }
+
 
 .nav-links {
     list-style: none;
@@ -60,6 +138,7 @@
     color: gold;
 }
 .nav-links{
+    font-family: 'Rubik', sans-serif;
     display: inline-block; /* Para que el enlace tenga dimensiones */
     padding: 10px 15px 10px; 
     text-decoration: none; /* Quita el subrayado */
@@ -85,10 +164,15 @@
     font-weight: bold;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
-.nav-links:hover {
-    text-shadow: 0px 0px 8px white;
-}
-
+.nav-links {
+    color: #ffffff; /* Default text color */
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links:hover {
+    color: rgb(250, 233, 150); /* Less vibrant color on hover */
+    background: rgba(0, 0, 0, 0.1); /* Subtle background change */
+  }
 .navbar-toggler {
     height: 40px;
     border: 1px solid #f2cd00 !important; /* Adds a border to make it visible */
@@ -102,6 +186,7 @@
     -webkit-mask-image: none;
 }
 .navbar-collapse {
+    position: static;
     top: 100%;
     right: 0;
     width: 100%; /* Full width */
@@ -112,7 +197,7 @@
 .navbar-collapse.show {
     display: block; /* Cuando se activa el toggle, mostramos el menú */
 }
-@media (min-width: 992px) {
+@media (min-width: 992) {
     .navbar-toggler {
         color: #f2cd00;
       display: none !important;
@@ -120,10 +205,11 @@
   }
   
   /* Show toggler only on mobile */
-  @media (max-width: 991px) { /* Up to lg breakpoint */
+  @media (max-width: 991.98px) { /* Up to lg breakpoint */
     
     .navbar-toggler {
       display: block;
+      margin: auto;
     }
     .navbar-collapse {
         position: absolute;
@@ -133,13 +219,61 @@
         background: rgba(0, 0, 0, 0.9); /* Fondo semi-transparente */
         z-index: 1040;
         padding: 10px;
-      }
+        align-content: center;
+    }
       .navbar-toggler-icon {
         background-color: #f2cd00 !important; /* Color del ícono */
         mask-image: none; /* Asegura que el ícono de Bootstrap se vea */
         -webkit-mask-image: none;
     }
 
+    .contenedor-img {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+        justify-items: flex-start;
+        margin: auto;
+    }
+
+    .contenedor-botones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Espaciado uniforme */
+        width: 100%;
+        padding: 10px 0;
+        margin:auto;
+    }
+    .social-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Espaciado uniforme */
+        width: 100%;
+        padding: 10px 0;
+        margin:auto;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 15px; /* Espaciado entre iconos */
+    }
+    
+    .contact-button {
+        background-color: #f2cd00;
+        color: #181818;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease;
+        margin:auto;
+    }
+    
+    .contact-button:hover {
+        background-color: #d4b200;
+    }
     .navbar-collapse {
         display: block; /* Asegura que el menú se muestra cuando se hace click en el toggler */
     }

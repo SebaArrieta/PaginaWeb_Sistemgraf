@@ -9,29 +9,55 @@
     --color-blanco: #ffffff;   
   }
 
+
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------INICIO-----------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
 .inicio-container {
+    position: relative;
     width: 100%; /* Ajusta el ancho */
     height: 900px; /* Ajusta la altura */
-    background-color: var(--color-azulOscuro); /* Color de fondo azul oscuro */
+    background-image: url("./imagen/principal2.webp"); /* 🔹 Cambia esto por la ruta real */
+    background-size: cover; /* 🔹 Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* 🔹 Centra la imagen */
+    background-repeat: no-repeat; /* 🔹 Evita que la imagen se repita */
     color: white; /* Color de texto */
     padding: 40px; /* Espaciado interno */
     display: flex;
+    align-content: center;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
+    overflow: hidden;
+}
+
+
+.inicio-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1818185c; /* 🔹 Ajusta la opacidad (0.0 transparente, 1.0 sólido) */
+    z-index: 1;
 }
 
 .inicio-text {
-    width: 36%; /* Ocupa 60% del ancho para el texto */
+    width: 60%; /* Ocupa 60% del ancho para el texto */
+    margin: auto;
     text-align: left;
-    margin-left: 10%;
+    z-index: 1;
 }
 
 .inicio-text h1 {
     font-family: 'Rubik', sans-serif;
-    font-size: 45px;
+    font-size: 60px;
     margin-bottom: 20px;
     font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
 .btn-servicios {
@@ -39,7 +65,7 @@
     border: none;
     padding: 15px 20px;
     display: inline-flex;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 30px;
     color: black !important;
@@ -53,7 +79,7 @@
 }
 
 .inicio-imagen {
-    width: 48%; /* La imagen ocupa 35% del contenedor */
+    width: 48%;
     display: flex;
     justify-content: right;
 }
@@ -65,7 +91,11 @@
 }
 
 
-/* Modalidad servicios */
+/*-----------------------------------------------------------------------------*/
+/*------------------------MODALIDAD DE SERVICIOS------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
 .modServicio {
     width: 100%;
     height: auto;
@@ -79,6 +109,7 @@
     max-width: 1200px;
     margin: auto;
 }
+
 
 .titulo {
     font-family: 'Rubik', sans-serif;
@@ -97,7 +128,8 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    margin-top: 40px;
+    gap: 40px;
 }
 
 /* Cada ítem de servicio */
@@ -107,14 +139,14 @@
 }
 
 .icono-servicio {
-    font-size: 120px; /* Tamaño del icono */
+    width: 150px;
     color: var(--color-azulSistemgraf);
     margin-bottom: 10px;
     transition: transform 0.5s ease-in-out;
 }
 
 .icono-servicio:hover {
-    transform: scale(1.2); /* 🔹 Aumenta el tamaño un 20% */
+    transform: scale(1.2);
 }
 
 .modServicio-item h3 {
@@ -130,7 +162,11 @@
     margin-top: 5px;
 }
 
-/* Acerca de */
+/*-----------------------------------------------------------------------------*/
+/*------------------------------ACERCA DE-------------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
 .acercaDe-container {
     width: 100%; /* Ajusta el ancho */
     height: auto; /* Ajusta la altura */
@@ -241,13 +277,17 @@
 }
 
 
-/* Nuestras Soluciones */
+/*-----------------------------------------------------------------------------*/
+/*---------------------------NUESTRAS SOLUCIONES------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
 .soluciones-container {
     width: 100%;
     height: auto;
     margin: auto;
     padding: 50px 20px;
-    background: linear-gradient(to top, var(--color-azulClaro) 30%, var(--color-azulOscuro) 100%);
+    background: linear-gradient(to top, var(--color-azulClaro) 30%, var(--color-azulOscuro) 100%); /* Degradado */
     text-align: center;
 }
 
@@ -258,34 +298,29 @@
     color: var(--color-blanco);
 }
 
+
+/* Slider ------------------------------- */
+
 .slick-list {
-    overflow: hidden; /* Permite que las tarjetas sean visibles aunque estén fuera del centro */
+    overflow: hidden; 
 }
 
-/* 📌 Estilos del Slider */
 .slick-slide {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-top: 50px;
-    height: 600px; /* Reducimos la altura de las tarjetas */
+    margin-top: 70px;
+    height: 650px; /* Reducimos la altura de las tarjetas */
     transition: transform 0.5s ease-in-out;
-    overflow: hidden !important;
 }
 
-/* 🔹 Asegurar que la tarjeta activa se destaque y quede bien alineada */
+/* Asegurar que la tarjeta activa se destaque y quede bien alineada */
 .slick-center .servicio-card {
     transform: scale(1.1); /* Aumenta ligeramente la tarjeta activa */
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔹 Ajuste para evitar que las tarjetas se vean desalineadas */
-.servicio-card {
-    margin: 0 auto;
-    max-width: 300px; /* Define un ancho estándar para evitar que cambien de tamaño */
-    height: 450px;
-}
 
 .slick-prev,
 .slick-next {
@@ -306,12 +341,14 @@
 /* Asegurar que las flechas no se oculten */
 .slick-prev::before,
 .slick-next::before {
-    color: black;
+    color: var(--color-negro);
     font-size: 50px;
 }
 
-/* 📌 Tarjetas de servicio */
+
+/* Tarjetas de servicio */
 .servicio-card {
+    margin: 0 auto;
     background: white;
     text-align: left; /* Alinear texto a la izquierda */
     max-width: 380px; /* Ajuste de ancho */
@@ -341,45 +378,46 @@
     object-fit: cover;
 }
 
-/* 📌 Contenedor del título */
+/* Contenedor del título */
 .servicio-title-container {
-    height: 80px;
-    padding: 15px 20px;
+    height: auto;
+    display: flex;
+    padding: 15px;
+    align-content: center;
+    justify-content: center;
 }
 
-/* 📌 Título */
+/* Estilo Título */
 .servicio-title {
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-/* 📌 Contenedor de la descripción */
+/* Contenedor de la descripción */
 .servicio-texto {
     flex-grow: 1;
     width: 350px;
     height: 250px;
-    overflow: hidden; /* 🔹 Oculta el exceso de texto */
+    padding: 0px 5px;
+    overflow: hidden;
     margin: auto;
     text-overflow: ellipsis;
 }
 
-.servicio-description {
-    font-family: 'Rubik', sans-serif;
-    font-size: 18px;
-    color: #555;
-    line-height: 1.4;
-}
-
+/* Contenedor de Botón */
 .servicio-boton {
-    height: 50px; /* 🔹 Espacio reservado para el botón */
+    height: 50px; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* 📌 Botón "Leer más" */
+/*  Botón "Leer más" */
 .btn-mas-info {
     background-color: var(--color-amarilloSistemgraf); /* Color oscuro para parecerse al de la referencia */
     color: black !important;
@@ -400,19 +438,25 @@
     transform: scale(1.05);
 }
 
-/* Socios Estrategicos */
+
+/*-----------------------------------------------------------------------------*/
+/*-------------------------SOCIOS ESTRATEGICOS--------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
+
 .socios-logos {
     display: flex;
     margin: auto;
     justify-content: center;
     align-items: center;
-    gap: 50px; /* Espacio entre logos */
+    gap: 50px;
     margin-top: 70px;
     margin-bottom: 50px;
 }
 
 .socio-logo {
-    height: 80px; /* Ajusta la altura según lo necesites */
+    height: 80px;
     object-fit: contain;
 }
 
@@ -426,22 +470,29 @@
     font-weight: bold;
 }
 
-/* Mapa */
+
+
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------MAPA-------------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
+
 .map-container {
     position: relative;
     width: 100%;
     height: 500px;
     margin: auto;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Contenido del mapa */
 .map-content {
     position: relative;
     width: 100%;
-    height: 500px; /* Ajusta la altura del mapa */
-    background-color: #eaeaea; /* Color de fondo de respaldo */
+    height: 500px; 
+    background-color: #eaeaea; 
 }
 
 /* Iframe del mapa */
@@ -460,6 +511,9 @@
 
 
 
+/*-----------------------------------------------------------------------------*/
+/*-------------------------------CONTACTO-------------------------------------*/
+/*---------------------------------------------------------------------------*/
 
 
 
@@ -474,10 +528,10 @@
     margin: auto;
 }
 
-/* 📌 Encabezado centrado */
+/* Encabezado centrado */
 .contacto-header {
     text-align: center;
-    margin-bottom: 30px; /* Espaciado entre el encabezado y el contenido */
+    margin-bottom: 30px;
 }
 
 .contacto-header h2 {
@@ -491,7 +545,7 @@
     margin-top: 10px;
 }
 
-/* 📌 Distribución de los elementos */
+/* Distribución de los elementos */
 .contacto-content {
     display: flex;
     justify-content: space-between;
@@ -500,14 +554,14 @@
     gap: 60px;
 }
 
-/* 📧 Formulario de contacto */
+/* Formulario de contacto */
 .contacto-form {
     width: 50%;
-    padding: 30px;
+    padding: 10px;
     border-radius: 10px;
 }
 
-/* 🔹 Campos de entrada */
+/* Campos de entrada */
 .input-group {
     display: flex;
     gap: 10px;
@@ -526,7 +580,7 @@
 }
 
 .textarea {
-    height: 120px;
+    height: 170px;
 }
 
 .btn-enviar {
@@ -545,6 +599,7 @@
     transform: scale(1.05);
 }
 
+
 /* Información de contacto */
 .contacto-info {
     width: 60%;
@@ -556,6 +611,37 @@
     grid-template-columns: repeat(1fr);
     gap: 15px;
     margin-top: 20px;
+}
+
+.contacto-card {
+    width: 95%;
+    height: 100px;
+    background: var(--color-azulSistemgraf);
+    text-align: center;
+    align-content: center;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    margin: auto;
+}
+
+.contacto-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+.contacto-card a {
+    font-family: 'Rubik', sans-serif;
+    color: var(--color-amarilloSistemgraf);
+    font-size: 15px;
+}
+
+.contacto-card.copied {
+    background-color: var(--color-negro);
+    border: 1px solid #fff;
 }
 
 .contacto-item {
@@ -572,18 +658,17 @@
     margin-bottom: 10px;
 }
 
-.contacto-item h3 {
+.letra-label {
     font-family: 'Rubik', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
+    font-size: 20px;
+    color: white;
 }
 
 .contacto-item a, .contacto-item p {
     font-family: 'Rubik', sans-serif;
     color: var(--color-azulSistemgraf);
-    text-decoration: none;
-    font-size: 14px;
+    text-decoration: none !important;
+    font-size: 8px;
 }
 
 .contacto-item a:hover {
@@ -593,181 +678,8 @@
 /* Ajuste para letra blanca en el párrafo */
 .letra-blanca {
     font-family: 'Rubik', sans-serif;
-    color: white;
-    font-size: 18px;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 15px;
     margin-top: 10px;
-}
-
-
-/* Inicio Pantallas pequeñas */
-@media (max-width: 768px) {
-    .inicio-container {
-        flex-direction: column-reverse; /* Apila los elementos en columnas */
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        padding: 20px;
-    }
-
-    .inicio-text {
-        width: 100%; /* El texto ocupa todo el ancho disponible */
-        text-align: center; /* Centra el texto en móviles */
-        margin-left: 10px;
-        margin-bottom: 20px;
-    }
-
-    .inicio-text h1 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-
-    .btn-servicios {
-        padding: 12px 18px; /* Reduce el tamaño del botón */
-    }
-
-    .inicio-imagen {
-        width: 80%; /* Reduce el ancho de la imagen */
-        justify-content: center; /* Centra la imagen */
-        position: relative;
-        top: -40px;
-    }
-
-    .inicio-imagen img {
-        height: auto;
-        width: 100%; /* Ajusta la imagen al ancho del contenedor */
-        max-width: 500px; /* Limita el tamaño máximo en móviles */
-    }
-
-}
-
-/* Modalidad Servicios pantallas pequeñas */
-@media (max-width: 768px) {
-    .modServicio-items {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .modServicio-item {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .icono-servicio {
-        font-size: 140px; /* Tamaño del icono */
-        color: var(--color-azulSistemgraf);
-        margin-bottom: 10px;
-    }
-
-}
-
-/* Acerca de pantallas pequeñas */
-@media (max-width: 768px) {
-    .acercaDe-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .acercaDe-imagen {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
-    .acercaDe-texto {
-        width: 100%;
-    }
-}
-
-
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* Nuestras soluciones */
-@media (max-width: 768px) {
-    .socios-logos {
-        flex-direction: column;
-        align-items: center;
-    }
-
-}
-
-/* Contacto */
-@media (max-width: 900px) {
-    .contacto-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .contacto-form,
-    .contacto-info {
-        width: 100%;
-    }
-
-    .contacto-grid {
-        grid-template-columns: 1fr;
-        padding: 0px;
-    }
-}
-
-@media (max-width: 768px) {
-    .slick-slide {
-        display: flex !important;
-        justify-content: center; /* 🔹 Centra las tarjetas */
-        align-items: center;
-        overflow: hidden !important;
-    }
-
-    /* Ajustar tamaño de la tarjeta en móvil */
-    .servicio-card {
-        width: 94% !important; /* 🔹 Hace que ocupe casi toda la pantalla */
-        max-width: 350px; /* 🔹 Controlar el tamaño máximo */
-    }
-
-    /* Ajustar imagen dentro de la tarjeta */
-    .servicio-img-container {
-        height: 180px; /* 🔹 Asegura que la imagen se vea bien */
-    }
-
-    /* 📌 Contenedor del título */
-    .servicio-title-container {
-        height: 80px;
-        padding: 15px 20px;
-    }
-
-    /* 📌 Título */
-    .servicio-title {
-        font-family: 'Rubik', sans-serif;
-        font-size: 18px;
-        font-weight: bold;
-        color: #222;
-    }
-
-    .servicio-texto {
-        flex-grow: 1;
-        width: 290px;
-        height: 230px;
-        overflow: hidden; /* 🔹 Oculta el exceso de texto */
-        margin: auto;
-        text-overflow: ellipsis;
-    }
-
-    .servicio-boton {
-        height: 50px; /* 🔹 Espacio reservado para el botón */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Ajuste del botón */
-    .btn-mas-info {
-        width: 90%; /* 🔹 Botón ocupa todo el ancho */
-        text-align: center;
-    }
-
-    body {
-        overflow-x: hidden; /* 🔹 Evita el desplazamiento horizontal en todo el sitio */
-    }
 }

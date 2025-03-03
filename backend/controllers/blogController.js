@@ -4,7 +4,7 @@ const { getObjectSignedUrl } = require('../config/S3');
 // Get Blog by id
 const getBlog = async (req, res) => {
     try {
-        const ID = req.body.ID;
+        const ID = req.query.ID;
         if (!ID) return res.status(400).json({ error: "ID de Blog requerido" });
 
         db.query("SELECT * FROM Blogs WHERE ID = ?", [ID], async (err, results) => {
@@ -12,6 +12,7 @@ const getBlog = async (req, res) => {
                 console.log('Error en la consulta:', err);
                 return res.status(500).json({ error: 'Error en la consulta' });
             }
+            if(results.length === 0) return res.status(400).json({ error: "Blog no encontrado" });
 
             if (results[0]["Img"].startsWith("blogs")) {
                 try {

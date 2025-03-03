@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import "./Header.css";
-import Logo from "./Logo.png";
+import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import "./Footer.css";
+import Logo from "../Header/imagen/LogoBlanco.png"
 
 export default function Footer() {
   return (
@@ -11,38 +11,36 @@ export default function Footer() {
       {/* Footer Container */}
       <div className="container">
         <div className="row">
+          {/* Middle section: Links */}
+          <div className="col-lg-4 col-md-6 text-start">
+            <h5>Enlaces</h5>
+            <Nav className="flex-column">
+              <Nav.Link as={Link} to="/inicio" className="text-white">Inicio</Nav.Link>
+              <Nav.Link as={Link} to="/servicios" className="text-white">Servicios</Nav.Link>
+              <Nav.Link as={Link} to="/blog" className="text-white">Blog</Nav.Link>
+              <Nav.Link as={Link} to="/nosotros" className="text-white">Nosotros</Nav.Link>
+              <Nav.Link as={Link} to="/intranet" className="text-white">Intranet</Nav.Link> 
+            </Nav>
+          </div>
+
           {/* Left section: Logo + Text */}
-          <div className="col-lg-4 col-md-6">
-            <Navbar.Brand as={Link} to="/inicio" className="ms-1">
+          <div className="col-lg-4 col-md-12 text-center"> 
+            <Navbar.Brand as={Link} to="/inicio">
               <img
                 src={Logo}
-                className='logo img'
+                className='logo-footer'
                 alt="Sistemgraf"
-                style={{ maxHeight: '50px' }}
               />
             </Navbar.Brand>
             <p>© 2025 Sistemgraf. Todos los derechos reservados.</p>
           </div>
 
-          {/* Middle section: Links */}
-          <div className="col-lg-4 col-md-6">
-            <h5>Enlaces</h5>
-            <Nav className="flex-column">
-              <Nav.Link as={Link} to="/inicio" className="text-white">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="/" className="text-white">Servicios</Nav.Link>
-              <Nav.Link as={Link} to="/" className="text-white">Blog</Nav.Link>
-              <Nav.Link as={Link} to="/" className="text-white">Nosotros</Nav.Link>
-              <Nav.Link as={Link} to="/contact" className="text-white">Contacto</Nav.Link>
-            </Nav>
-          </div>
-
           {/* Right section: Social Media Links */}
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-4 col-md-6 text-end">
             <h5>Síguenos</h5>
             <div className="social-links">
-              <a href="https://facebook.com" className="text-white me-2"><FaFacebook size={24} /></a>
-              <a href="https://twitter.com" className="text-white me-2"><FaTwitter size={24} /></a>
-              <a href="https://instagram.com" className="text-white me-2"><FaInstagram size={24} /></a>
+              <a href="https://www.linkedin.com" className="text-white me-2"><FaLinkedin size={24} /></a>
+              <a href="https://www.instagram.com" className="text-white me-2"><FaInstagram size={24} /></a>
             </div>
           </div>
         </div>

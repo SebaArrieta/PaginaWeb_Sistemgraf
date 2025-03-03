@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
-import { BiCloudUpload, BiWrench, BiBell, BiTrendingUp } from "react-icons/bi";
-import { FaPhone } from "react-icons/fa6";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AOS from "aos";  /* Acá para efectos */
 import "aos/dist/aos.css"; 
+import DOMPurify from "dompurify";
+import Loading from "../components/Loading";
 
 
 import "./Inicio.css";
-import LogoAzul from "./LogoS_Azul.png";
-import LogoBlanco from "./LogoS_Blanco.png";
-import Aboutus from "./about-us.webp";
-import socio1 from "../nosotros/Logo-Bsolutions-Editable.png"; 
-import socio2 from "./strategy_logo_orange.svg";
+import "./InicioPequeño.css";
+import Aboutus from "./imagen/about-us.png";
+import socio1 from "../nosotros/nosotrosImg/Logo-Bsolutions-Editable.png"; 
+import socio2 from "./imagen/strategy_logo_orange.svg";
 import mision from "../nosotros/nosotrosImg/mision.png"; /*Imagen de mision */
 import vision from "../nosotros/nosotrosImg/vision.png"; /*Imagen vision*/
+
+import ContactForm2 from "../Contacto/contactForm";
+
+/* Imágenes de Modalidad de servicios */
+import Nube from "./imagen/acceso-basado-en-la-nube.png";
+import Performance from "./imagen/performance.png";
+import Consultoria from "./imagen/servicio-de-consultoria.png";
+import Tecnologia from "./imagen/Soluciones-de-Tecnologia.png";
+import Mantenimiento from "./imagen/mantenimiento.png";
+import Suscripcion from "./imagen/suscripcion.png";
+import Escalabilidad from "./imagen/scalability.png";
+
 
 import { getServices }  from "../repositorios/Conexión";
 
@@ -25,22 +36,39 @@ const Inicio = () => {
   const history = useNavigate ();
   const [servicios, setServicios] = useState([]);
   const [copied, setCopied] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchServices = async () => {
         try {
             const data = await getServices();
 
             setServicios(data || []); // Set an empty array as fallback
+            if (!data || data.length === 0) {
+              setLoading(false);
+            }
           } catch (error) {
             console.error("Error al obtener servicios:", error);
             setServicios([]); // Prevent undefined state
+            setLoading(false);
           }
     };
 
     fetchServices();
   }, []);
+
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (imagesLoaded === 1 && servicios.length > 0) {
+      setLoading(false);
+    }
+  }, [imagesLoaded, servicios.length]);
 
   const parseDescription = (text) => {
     // Divide el texto en partes que coincidan con *algo*
@@ -75,7 +103,8 @@ const Inicio = () => {
         slidesToShow: 1,
         centerMode: true,
         centerPadding: "0px",
-        adaptiveHeight: true, 
+        adaptiveHeight: true,
+        arrows: false, 
       } },
       
     ],
@@ -97,60 +126,27 @@ const Inicio = () => {
 
     return (
       <>
+        {/* La imágen de inicio se encuentra en el archivo Inicio.css, dentro del estilo "inicio-container" */}
         <div className="inicio-container">
-          <div className="inicio-text" data-aos="slide-right">  
+          {loading && <Loading />} 
+          <div className="inicio-text" data-aos="fade-up">  
             <h1>Lideramos la transformación empresarial hacia un futuro de excelencia y crecimiento sostenible.</h1>
             <NavLink to="/servicios" className="btn-servicios">Conoce nuestros servicios</NavLink>
           </div>
-          <div className="inicio-imagen" data-aos="fade-up">
-            <img src={LogoAzul} alt="Sistemgraf" />
-          </div>
         </div>
         
-        <div className="modServicio">
-          <div className="modServicio-container" data-aos="fade-up">
-            <h2 className="titulo">Modalidad de Servicio</h2>
-            <p className="subtitulo">Ofrecemos un servicio "SaaS", que permite obtener</p>
-
-            <div className="modServicio-items" data-aos="fade-up">
-              <div className="modServicio-item">
-                <BiCloudUpload className="icono-servicio" />
-                <h3>Acceso basado en la nube</h3>
-                <p>Solo necesitas una conexión a internet y un navegador.</p>
-              </div>
-
-              <div className="modServicio-item" data-aos="fade-up">
-                <BiWrench className="icono-servicio" />
-                <h3>Mantenimiento</h3>
-                <p>Gestionado por Sistemgraf.</p>
-              </div>
-
-              <div className="modServicio-item" data-aos="fade-up">
-                <BiBell className="icono-servicio" />
-                <h3>Suscripción</h3>
-                <p>Se paga por usuario suscripción anual.</p>
-              </div>
-
-              <div className="modServicio-item" data-aos="fade-up">
-                <BiTrendingUp className="icono-servicio" />
-                <h3>Escalabilidad</h3>
-                <p>Fácil de escalar según las necesidades del cliente.</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div className="acercaDe-container">
           <div className="acercaDe-content" data-aos="fade-up">
             {/* Imagen de la empresa o el gato */}
             <div className="acercaDe-imagen">
-              <img src={ Aboutus } alt="Acerca de Sistemgraf" />
+              <img src={ Aboutus } loading="lazy" alt="Acerca de Sistemgraf" onLoad={handleImageLoad}/>
             </div>
 
             {/* Texto informativo */}
             <div className="acercaDe-texto">
               <h2 className="titulo-amarillo">Acerca de Sistemgraf</h2>
-              <p>
+              <p style={{ textAlign: "justify" }}>
                 Somos Sistemgraf: inteligencia integrada para Recursos Humanos y procesos de negocio.
                 Fundada en 2018, nuestra misión es transformar la forma en que las organizaciones
                 gestionan su capital humano y toman decisiones estratégicas con el valor de los datos.
@@ -165,10 +161,10 @@ const Inicio = () => {
 
             <div className="acercaDe-caja" data-aos="fade-up">
               <div className="caja-imagen">
-                <img src={ vision } alt="Nuestra Visión" />
+                <img src={ vision } alt="Nuestra Visión"/>
               </div>
               <h3 className="caja-titulo">Nuestra Visión</h3>
-              <p>
+              <p style={{ textAlign: "justify" }}>
                 Liderar la Transformación Digital Estratégica fortaleciendo una cultura organizacional innovadora, adaptable y colaborativa. 
                 Desarrollamos capacidades críticas en inteligencia de negocios, análisis de datos y competencias laborales, 
                 impulsando un cambio sostenible donde el talento humano es el motor clave del éxito.
@@ -177,10 +173,10 @@ const Inicio = () => {
 
             <div className="acercaDe-caja" data-aos="fade-up">
               <div className="caja-imagen">
-                <img src={ mision } alt="Nuestra Visión" />
+                <img src={ mision } alt="Nuestra Visión"/>
               </div>
               <h3 className="caja-titulo">Nuestra Misión</h3>
-              <p>
+              <p style={{ textAlign: "justify" }}>
                 Empoderar a las áreas de Recursos Humanos mediante el uso estratégico de datos integrados y una visión 360° del capital humano, 
                 apalancados en modelos de inteligencia de negocios, inteligencia artificial y análisis estadístico avanzado. 
                 Nuestro objetivo es facilitar la toma de decisiones con menor riesgo, garantizando un proceso de mejora continua en las organizaciones.
@@ -211,12 +207,12 @@ const Inicio = () => {
                     <h5 className="servicio-title">{servicio.Name}</h5>
                   </div>
 
-                  {/* 📌 Contenedor de la descripción */}
+                  {/* Contenedor de la descripción */}
                   <div className="servicio-texto">
-                    <p className="servicio-description">{servicio.Description}</p>
+                    <div className="quill-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(servicio.Description) }} />
                   </div>
 
-                  {/* 📌 Contenedor del botón */}
+                  {/* Contenedor del botón */}
                   <div className="servicio-boton">
                     <NavLink to="/servicios" className="btn-mas-info">Leer más</NavLink>
                   </div>
@@ -224,6 +220,65 @@ const Inicio = () => {
               </div>
             ))}
           </Slider>
+        </div>
+
+        <div className="modServicio">
+          
+          {/* B-Solutions */}
+          <div className="modServicio-container" data-aos="fade-up">
+            <h2 className="titulo">Modalidad de Servicio</h2>
+            <p className="subtitulo">Ofrecemos un servicio "SaaS", que permite obtener</p>
+
+            <div className="modServicio-items" data-aos="fade-up">
+              
+              <div className="modServicio-item">
+                <img src={ Nube } alt="Nube" className="icono-servicio" />
+                <h3>Acceso basado en la nube</h3>
+                <p>Solo necesitas una conexión a internet y un navegador.</p>
+              </div>
+
+              <div className="modServicio-item">
+                <img src={ Performance } alt="Performance" className="icono-servicio"/>
+                <h3>Performance Management</h3>
+                <p>Mejora continua de la planificación y ejecución estratégica de tu empresa.</p>
+              </div>
+
+              <div className="modServicio-item" data-aos="fade-up">
+                <img src={ Consultoria } alt="Consultoria" className="icono-servicio" />
+                <h3>Servicios de Consultoría</h3>
+                <p>Soluciones personalizadas con herramientas estratégicas para impulsar proyectos.</p>
+              </div>
+
+              <div className="modServicio-item" data-aos="fade-up">
+                <img src={ Tecnologia } alt="Tecnologia" className="icono-servicio" />
+                <h3>Soluciones de Tecnología</h3>
+                <p>Aplicamos tecnología avanzada para optimizar procesos y potenciar el crecimiento.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="modServicio-container" data-aos="fade-up">
+            <div className="modServicio-items" data-aos="fade-up">
+
+              <div className="modServicio-item" data-aos="fade-up">
+                <img src={ Mantenimiento } alt="Mantenimiento" className="icono-servicio" />
+                <h3>Mantenimiento</h3>
+                <p>Gestionado por Sistemgraf.</p>
+              </div>
+
+              <div className="modServicio-item" data-aos="fade-up">
+                <img src={ Suscripcion } alt="Suscripcion" className="icono-servicio" />
+                <h3>Suscripción</h3>
+                <p>Se paga por usuario suscripción anual.</p>
+              </div>
+
+              <div className="modServicio-item" data-aos="fade-up">
+                <img src={ Escalabilidad } alt="Escalabilidad" className="icono-servicio" />
+                <h3>Escalabilidad</h3>
+                <p>Fácil de escalar según las necesidades del cliente.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="modServicio">
@@ -250,42 +305,35 @@ const Inicio = () => {
           <div className="contacto-content" data-aos="fade-up">
             {/* 📝 Formulario de contacto */}
             <div className="contacto-form">
-              <form>
-                <div className="input-group">
-                  <input type="text" placeholder="Nombre" className="input-field" />
-                  <input type="email" placeholder="Email" className="input-field" />
-                </div>
-                <input type="text" placeholder="Sitio web" className="input-field full-width" />
-                <textarea placeholder="Mensaje" className="input-field full-width textarea"></textarea>
-                <button type="submit" className="btn-enviar">Enviar mensaje</button>
-              </form>
+              <ContactForm2>
+              </ContactForm2>
             </div>
 
             {/* 📌 Sección de información de contacto */}
             <div className="contacto-info">
-            <div className="contacto-grid">
-        {[
-          { id: "telefono", label: "NÚMERO DE TELÉFONO", value: "+56 9 31979188", link: "tel:+56931979188" },
-          { id: "email", label: "E-MAIL", value: "contacto@sistemgraf.cl", link: "mailto:contacto@sistemgraf.cl" },
-          { id: "direccion_principal", label: "DIRECCIÓN PRINCIPAL", value: "Sta. Elena, Colbún, Región Maule - Chile" },
-          { id: "direccion_sucursal", label: "DIRECCIÓN SUCURSAL", value: "Diego de Almagro 2246, Providencia, Santiago, Región Metropolitana — Chile" }
-        ].map((item) => (
-          <div
-            key={item.id}
-            className={`contact-card ${copied === item.id ? "copied" : ""}`}
-            onClick={() => copyToClipboard(item.value, item.id)}
-          >
-            <span className="icono"></span>
-            <h3>{item.label}</h3>
-            {item.link ? (
-              <a href={item.link}>{item.value}</a>
-            ) : (
-              <p>{item.value}</p>
-            )}
-            {copied === item.id && <div className="copy-message">Copiado</div>}
-          </div>
-        ))}
-      </div>
+              <div className="contacto-grid">
+                {[
+                  { id: "telefono", label: "Número de teléfono", value: "+56 9 31979188", link: "tel:+56931979188" },
+                  { id: "email", label: "E-mail", value: "contacto@sistemgraf.cl", link: "mailto:contacto@sistemgraf.cl" },
+                  { id: "direccion_principal", label: "Dirección principal", value: "Sta. Elena, Colbún, Región Maule - Chile" },
+                  { id: "direccion_sucursal", label: "Dirección sucursal", value: "Diego de Almagro 2246, Providencia, Santiago, Región Metropolitana — Chile" }
+                ].map((item) => (
+                  <div
+                    key={item.id}
+                    className={`contacto-card ${copied === item.id ? "copied" : ""}`}
+                    onClick={() => copyToClipboard(item.value, item.id)}
+                  >
+                    <span className="icono"></span>
+                    <h4 className="letra-label">{item.label}</h4>
+                    {item.link ? (
+                      <a href={item.link}>{item.value}</a>
+                    ) : (
+                      <p className="letra-blanca">{item.value}</p>
+                    )}
+                    {copied === item.id && <div className="copy-message">Copiado</div>}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

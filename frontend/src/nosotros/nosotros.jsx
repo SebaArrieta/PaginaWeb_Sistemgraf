@@ -18,11 +18,11 @@ import cliente from "./nosotrosImg/cliente.png";
 import adaptabilidad from "./nosotrosImg/adaptibilidad.png";
 import sostenibilidad from "./nosotrosImg/sostenibilidad.png";
 /*Imagenes de nuestro equipo*/
-import director from "./mauricio.png";
-import jefeProyectos from "./fernolds.png";
+import director from "./nosotrosImg/mauricio.png";
+import jefeProyectos from "./nosotrosImg/fernolds.png";
 /*Imagenes de nuestros socios*/
-import socio1 from "./Logo-Bsolutions-Editable.png"; 
-import socio2 from "../Inicio/strategy_logo_orange.svg";
+import socio1 from "./nosotrosImg/Logo-Bsolutions-Editable.png"; 
+import socio2 from "../Inicio/imagen/strategy_logo_orange.svg";
 
 
 
@@ -51,36 +51,59 @@ const Nosotros = () => {
 
    /* Acá para efectos */
    useEffect(() => {
+    document.documentElement.scrollTop = 0; // Fuerza el inicio sin animación
+    document.body.scrollTop = 0; 
     AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
-    <div style={{ paddingTop: '70px' }}>
+    <div >
       {/* Contenedor de ancho completo para la sección principal, misión y visión */}
-      <div className="full-width-container bg-darkblue text-white">
+      <div className="full-width-container bg-gradiente text-white" style={{ paddingTop: '100px' }}>
         <div className="nosotros-container" data-aos="fade-up">
-          <h1 className="nosotros-title text-center"><strong>Sobre Sistemgraf</strong></h1>
-
-          {/* Sección principal con imagen y texto */}
-          <div className="content d-flex align-items-center justify-content-center flex-column flex-md-row">
-            <div className="text mb-3 mb-md-0 col-12 col-md-6">
-              <p>
-                Somos Sistemgraf: inteligencia integrada para Recursos Humanos y procesos de negocio. Fundada en 2018, nuestra misión es transformar la forma en que las organizaciones gestionan su capital humano y 
-                toman decisiones estratégicas con el valor de los datos. Con un equipo de expertos apasionados por la innovación, destacamos en el uso de Inteligencia Artificial, Business Intelligence y Analytics para 
-                impulsar el éxito empresarial.
-              </p>
+          <div className="row">
+            <div className="col-12 text-center mb-4">
+              <h1 className="nosotros-title " ><strong>Sobre Sistemgraf</strong></h1>
             </div>
-            <div className="image ">
-              <img src={principal} alt="Descripción" className="img-large"/>
+
+            {/* Sección principal con imagen y texto */}
+            <div className="row align-items-center">
+              <div className="col-12 col-md-6 px-md-4 py-3" style={{ textAlign: "justify", lineHeight: "1.7" }}>
+                <p className="mb-4"><strong>Somos Sistemgraf:</strong> inteligencia integrada para Recursos Humanos y procesos de negocio.</p>
+
+                <p className="mb-4">
+                  Fundada en <strong>2018</strong>, nuestra misión es transformar la forma en que las organizaciones 
+                  <strong> gestionan su capital humano</strong> y <strong>toman decisiones estratégicas</strong> mediante el poder de los datos.
+                </p>
+
+                <p className="mb-4">
+                  Con un equipo de expertos apasionados por la innovación, nos destacamos en el uso de:
+                </p>
+
+                <ul className="mb-4 ps-3">
+                  <li><strong>Inteligencia Artificial</strong></li>
+                  <li><strong>Business Intelligence</strong></li>
+                  <li><strong>Analytics</strong></li>
+                </ul>
+
+                <p className="mb-0">
+                  Nuestro objetivo es <strong>impulsar el éxito empresarial</strong>, ofreciendo soluciones inteligentes y estratégicas 
+                  para la gestión del talento.
+                </p>
+
+              </div>
+              <div className="col-12 col-md-6 text-center ">
+                <img src={principal} alt="Descripción" className="img-large" style={{ maxWidth: "100%", height: "auto" }}/>
+              </div>
             </div>
           </div>
 
           {/* Tarjeta de Misión */}
-          <div className="row mb-4">
-            <div className="col-12" >
-              <div className="nosotros-card" style={{ backgroundColor: "#ffffff" }} data-aos="fade-up">
+          <div className="row mt-4">
+            <div className="col-12 col-md-6 mb-4"  >
+              <div className="nosotros-card h-100" style={{ backgroundColor: "#ffffff" }} data-aos="fade-up">
                 <div className="row no-gutters">
-                  <div className="col-12 col-md-4">
+                  <div className="col-12 col-md-4" >
                     <div className="nosotros-card-img-container" >
                       <img src={mision} className="nosotros-card-img" alt="Misión" />
                     </div>
@@ -88,32 +111,38 @@ const Nosotros = () => {
                   <div className="col-12 col-md-8">
                     <div className="nosotros-card-body" style={{ backgroundColor: "#ffffff" }}>
                       <h5 className="nosotros-card-text text-center"><strong>Misión</strong></h5>
-                      <p className="nosotros-card-text">
-                        Empoderar a las áreas de Recursos Humanos mediante el uso estratégico de datos integrados y una visión 360° del capital humano, apalancados en modelos de inteligencia de negocios, inteligencia artificial y análisis estadístico avanzado. Nuestro objetivo es facilitar la toma de decisiones con menor riesgo, garantizando un proceso de mejora continua en las organizaciones.
+                      <p className="nosotros-card-text " style={{ textAlign: "justify"}}>
+                        Empoderar a las áreas de Recursos Humanos mediante el uso estratégico de datos integrados y una visión 360° del capital humano, apalancados en modelos de inteligencia de negocios, inteligencia artificial y análisis estadístico avanzado. 
+                      </p>
+                      <p className="nosotros-card-text " style={{ textAlign: "justify"}}>
+                        Nuestro objetivo es facilitar la toma de decisiones con menor riesgo, garantizando un proceso de mejora continua en las organizaciones.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Tarjeta de Vision */}
-          <div className="row mb-2">
-            <div className="col-12">
-              <div className="nosotros-card" style={{ backgroundColor: "#ffffff"}} data-aos="fade-up">
+          
+            {/* Tarjeta de Vision */}
+    
+            <div className="col-12 col-md-6 mb-4">
+              <div className="nosotros-card h-100" style={{ backgroundColor: "#ffffff"}} data-aos="fade-up">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-4">
-                    <div className="nosotros-card-img-container">
-                      <img src={vision} className="nosotros-card-img" alt="Visión" />
+                      <div className="nosotros-card-img-container">
+                        <img src={vision} className="nosotros-card-img" alt="Visión" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-12 col-md-8">
-                    <div className="nosotros-card-body" style={{ backgroundColor: "#ffffff" }}>
-                      <h5 className="nosotros-card-text text-center"><strong>Visión</strong></h5>
-                      <p className="nosotros-card-text">
-                        Liderar la Transformación Digital Estratégica fortaleciendo una cultura organizacional innovadora, adaptable y colaborativa. Desarrollamos capacidades críticas en inteligencia de negocios, análisis de datos y competencias laborales, impulsando un cambio sostenible donde el talento humano es el motor clave del éxito.
-                      </p>
+                    <div className="col-12 col-md-8">
+                      <div className="nosotros-card-body" style={{ backgroundColor: "#ffffff" }}>
+                        <h5 className="nosotros-card-text text-center"><strong>Visión</strong></h5>
+                        <p className="nosotros-card-text" style={{ textAlign: "justify"}}>
+                          Liderar la Transformación Digital Estratégica fortaleciendo una cultura organizacional innovadora, adaptable y colaborativa. 
+                        </p>
+                        <p className="nosotros-card-text" style={{ textAlign: "justify"}}>
+                          Desarrollamos capacidades críticas en inteligencia de negocios, análisis de datos y competencias laborales, impulsando un cambio sostenible donde el talento humano es el motor clave del éxito.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -121,7 +150,6 @@ const Nosotros = () => {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Contenedor de ancho completo para "Nuestros Valores" */}
       <div className="full-width-container bg-lightblue text-black">
@@ -140,7 +168,7 @@ const Nosotros = () => {
                     <div className="col-12 col-md-8">
                       <div className="nosotros-card-body" style={{ backgroundColor: "#ffffff" }}>
                         <h5 className="nosotros-card-text text-center">{valor.titulo}</h5>
-                        <p className="nosotros-card-text">{valor.descripcion}</p>
+                        <p className="nosotros-card-text "style={{ textAlign: "justify"}}>{valor.descripcion}</p>
                       </div>
                     </div>
                   </div>
@@ -169,7 +197,7 @@ const Nosotros = () => {
                       <div className="nosotros-card-body" style={{ backgroundColor: "#ffffff" }}>
                         <h5 className="nosotros-card-text text-center"><strong>{miembro.nombre}</strong></h5>
                         <h6 className="mb-2 text-muted text-center">{miembro.rango}</h6>
-                        <p className="nosotros-card-text text-center">{miembro.descripcion}</p>
+                        <p className="nosotros-card-text" style={{ textAlign: "justify"}}>{miembro.descripcion}</p>
                       </div>
                     </div>
                   </div>
@@ -187,12 +215,12 @@ const Nosotros = () => {
           <div className="row">
             <div className="col-md-6 mb-4">
               <div className="col-md-12">
-                <img src={socio1}  className="nosotros-card-img" alt="Cliente 1" style={{ height: "40%", objectFit: "cover" }} />
+                <img src={socio1}  className="nosotros-card-img" alt="Cliente 1" style={{ height: "20%", objectFit: "cover" }} />
               </div>
             </div>
             <div className="col-md-6 mb-4">
               <div className="col-md-12">
-                <img src={socio2}  className="nosotros-card-img" alt="Cliente 2" style={{ height: "30%", objectFit: "cover" }} />
+                <img src={socio2}  className="nosotros-card-img" alt="Cliente 2" style={{ height: "20%", objectFit: "cover" }} />
               </div>
             </div>
           </div>

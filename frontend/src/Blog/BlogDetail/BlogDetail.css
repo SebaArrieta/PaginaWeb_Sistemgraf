@@ -1,0 +1,26 @@
+.blog-page{
+    padding: 7% 15% !important;
+}
+
+.blog-page h1{
+    margin-bottom: 30px;
+}
+
+.blog-img {
+    width: 100%; /* Make images responsive */
+    max-width: 1500px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+@media only screen and (max-width: 900px) {
+    .blog-page h1{
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .blog-page h1{
+        margin-top: 25%;
+    }
+}

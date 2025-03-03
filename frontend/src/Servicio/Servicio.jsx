@@ -3,74 +3,98 @@ import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css"; 
 import "./Servicio.css"; 
 import { getServices } from "../repositorios/Conexión";
+import DOMPurify from "dompurify";
+import Loading from "../components/Loading";
 
 const Servicios = () => {
   const history = useNavigate();
   const [servicios, setServicios] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isWide, setIsWide] = useState(window.innerWidth <= 1500);
+  const [loading, setLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchServices = async () => {
       try {
         const data = await getServices();
         setServicios(data || []);
+
+        // If there are no images, mark as loaded immediately
+        if (!data || data.length === 0) {
+          setLoading(false);
+        }
       } catch (error) {
         console.error("Error al obtener servicios:", error);
         setServicios([]);
+        setLoading(false);
       }
     };
 
     fetchServices();
+
+    const handleResize = () => {
+      setIsWide(window.innerWidth <= 1500);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (imagesLoaded === servicios.length && servicios.length > 0) {
+      setLoading(false);
+    }
+  }, [imagesLoaded, servicios.length]);
+
+  const handleContactClick = (servicioName) => {
+    const message = `Deseo saber más sobre los detalles de ${servicioName}`;
+    history(`/contact?message=${encodeURIComponent(message)}.`);
+  };
 
   return (
     <div className="container-new" style={{ paddingTop: '100px' }}>
-      <div className="row justify-content-center">
+      {loading && <Loading />} 
 
+      <div className="row justify-content-center card-container">
+        <h1 className="title-page">Nuestros Servicios para Potenciar tu Negocio</h1>
         {servicios.map((servicio, ID) => {
           const colores = ["#A3E7FF", "#FFEB8A", "#9EC6E0"];
           const colorFondo = colores[ID % colores.length];
 
           return (
-            <div key={ID} className="col-md-4 mb-4">
-              <div
-                className="card servicio-card-serv"
-                style={{ backgroundColor: colorFondo }}
-              >
-                <img
-                  src={servicio.Img}
-                  alt="Imagen del servicio"
-                  className={`card-img-top servicio-img-serv ${isLoaded ? "fade-in" : "hidden"}`}
-                  onLoad={() => setIsLoaded(true)} 
-                />
+            <div key={ID} className={isWide ? "col-md-6 mb-4" : "col-md-4 mb-4"}>
+              <div className="servicio-card" data-aos="fade-up">
+                <div className="servicio-img-container">
+                  <img
+                    src={servicio.Img}
+                    alt="Imagen del blog"
+                    className="servicio-img" 
+                    loading="lazy"
+                    onLoad={handleImageLoad} // Track image load
+                  />
+                </div>
 
-                <div className="card-body">
-                  <h5 className="card-title" style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#333" }}>
-                    {servicio.Name}
-                  </h5>
+                <div className="servicio-title-container">
+                  <h5 className="servicio-title">{servicio.Name}</h5>
+                </div>
+              
+                <div className="servicio-texto">
+                  <div className="quill-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(servicio.Content) }} />
+                </div>
 
-                  <p className="card-text" style={{ fontSize: "1.2rem", color: "#222", lineHeight: "1.5" }}>
-                    {servicio.Content.split("*").map((part, index) => {
-                      // Buscar el primer punto después del asterisco
-                      const match = part.match(/(.*?\.)/);
-                      const subtitulo = match ? match[1] : null;
-                      const resto = match ? part.replace(subtitulo, "").trim() : part.trim();
-
-                      return (
-                        <span key={index} className="contenido-servicio">
-                          {index > 0 && <br />}
-                          •{" "}
-                          {subtitulo && (
-                            <span className="subtitulo">
-                              <span className="cuadrado"></span>
-                              <strong>{subtitulo}</strong>
-                            </span>
-                          )}
-                          {resto}
-                        </span>
-                      );
-                    })}
-                  </p>
+                <div className="servicio-boton">
+                  <button 
+                    className="btn-mas-info"
+                    onClick={() => handleContactClick(servicio.Name)}
+                  >
+                      Contáctenos
+                  </button>
                 </div>
               </div>
             </div>

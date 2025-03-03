@@ -22,10 +22,11 @@
 }
 
 body {
-  font-family: 'GoodTimes', sans-serif;
+  font-family: 'GoodTimes', sans-serif !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden; 
 }
 
 .App {

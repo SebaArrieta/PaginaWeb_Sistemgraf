@@ -15,6 +15,7 @@ Comandos de instalación para el frontend usados:
     npm install bootstrap
     npm install react-icons
     #npm install react-bootstrap
+    npm install react-whatsapp-button
     
 
     
