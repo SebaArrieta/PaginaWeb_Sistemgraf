@@ -33,65 +33,6 @@
   opacity: 1;
 }
 /* Tarjeta de servicio */
-.servicio-card-serv {
-  width: 100%;
-  max-width: 500px; /* Evita tarjetas muy grandes */
-  min-height: 350px;
-  border: none;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  opacity: 0; /* Inicialmente invisible */
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-/* Imagen dentro de la tarjeta */
-.servicio-img-serv {
-  width: 100%;
-  height: auto;
-  max-height: 220px; /* Limita la altura */
-  object-fit: cover;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-/* Cuerpo del servicio */
-.servicio-card-serv .card-body {
-  padding: 20px;
-  text-align: center;
-}
-
-/* Títulos de los servicios (en blanco) */
-.servicio-card-serv .card-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: white; /* Blanco para mejor contraste */
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-/* Texto del servicio */
-.servicio-card-serv .card-text {
-  font-size: 16px;
-  color: #333; /* Color oscuro para mejor legibilidad */
-  line-height: 1.6;
-}
-
-/* Diferentes colores de fondo para alternar */
-.servicio-card-serv:nth-child(3n + 1) {
-  background-color: #0078D7; /* Azul intenso */
-}
-
-.servicio-card-serv:nth-child(3n + 2) {
-  background-color: #E44D26; /* Rojo anaranjado */
-}
-
-.servicio-card-serv:nth-child(3n + 3) {
-  background-color: #34A853; /* Verde fuerte */
-}
 
 /* Efecto hover */
 .servicio-card-serv:hover {

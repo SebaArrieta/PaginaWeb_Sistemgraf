@@ -11,21 +11,21 @@ export default function Footer() {
       {/* Footer Container */}
       <div className="container">
         <div className="row">
-          {/* Middle section: Links */}
+          {/* Enlaces */}
           <div className="col-lg-4 col-md-6 text-start">
             <h5>Enlaces</h5>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/inicio" className="text-white">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="/servicios" className="text-white">Servicios</Nav.Link>
-              <Nav.Link as={Link} to="/blog" className="text-white">Blog</Nav.Link>
-              <Nav.Link as={Link} to="/nosotros" className="text-white">Nosotros</Nav.Link>
-              <Nav.Link as={Link} to="/intranet" className="text-white">Intranet</Nav.Link> 
+              <Nav.Link as={Link} to="/sistemgraf/inicio" className="text-white">Inicio</Nav.Link>
+              <Nav.Link as={Link} to="/sistemgraf/servicios" className="text-white">Servicios</Nav.Link>
+              <Nav.Link as={Link} to="/sistemgraf/blog" className="text-white">Blog</Nav.Link>
+              <Nav.Link as={Link} to="/sistemgraf/nosotros" className="text-white">Nosotros</Nav.Link>
+              <Nav.Link as="a" href="https://www.youtube.com/" className="text-white">Intranet</Nav.Link> {/* Cambiar ruta a CMS */}
             </Nav>
           </div>
 
-          {/* Left section: Logo + Text */}
+          {/* Mid Section: logo*/}
           <div className="col-lg-4 col-md-12 text-center"> 
-            <Navbar.Brand as={Link} to="/inicio">
+            <Navbar.Brand as={Link} to="/sistemgraf/inicio">
               <img
                 src={Logo}
                 className='logo-footer'
@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
 
           {/* Right section: Social Media Links */}
-          <div className="col-lg-4 col-md-6 text-end">
+          <div className="col-lg-4 col-md-6 text-center">
             <h5>Síguenos</h5>
             <div className="social-links">
               <a href="https://www.linkedin.com" className="text-white me-2"><FaLinkedin size={24} /></a>

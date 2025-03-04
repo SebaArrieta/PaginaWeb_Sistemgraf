@@ -11,7 +11,7 @@ const sendMail = async (req, res) => {
   // Email content
   const mailOptions = {
     from: process.env.EMAIL_USER, // Simulated sender email
-    to: "gleyton@sistemgraf.com", // Test recipient
+    to: "contacto@sistemgraf.cl", // Test recipient
     subject: `New Contact from ${name}`,
     html: `
       <h3>Contact Details:</h3>

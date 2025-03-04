@@ -4,46 +4,31 @@
 
 
 @media (max-width: 768px) {
-    .inicio-container {
-        display: flex; /* Convertir en flexbox */
-        flex-direction: column; /* Apilar elementos verticalmente */
-        align-items: center; /* Centrar horizontalmente */
-        justify-content: center; /* Centrar verticalmente */
+    .prueba-text {
+        width: 60%;
+        margin: auto;
         text-align: center;
-        width: 100%;
-        padding: 20px;
+        justify-content: space-around;
     }
-
-    .inicio-text {
-        width: 90%; /* Reducir un poco para evitar pegado a los bordes */
-        text-align: center;
-        margin: 0 auto; /* Centrar correctamente */
-    }
-
-    .inicio-text h1 {
-        font-size: 30px;
+    .prueba-text h1 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 35px;
         margin-bottom: 20px;
         font-weight: bold;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
     }
 
-    .btn-servicios {
-        padding: 12px 18px;
-        display: inline-block; /* Evita que se estire */
-        margin-top: 10px; /* Espacio extra */
-    }
-
-    .inicio-imagen {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        top: -40px;
-    }
-
-    .inicio-imagen img {
-        height: auto;
-        width: 100%;
-        max-width: 500px;
+    .prueba-btn {
+        background-color: var(--color-amarilloSistemgraf);
+        border: none;
+        padding: 15px 20px;
+        display: inline-flex;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 30px;
+        color: black !important;
+        text-decoration: none !important;
+        font-weight: bold;
     }
 }
 
@@ -56,6 +41,7 @@
 @media (max-width: 768px) {
     .servicio-card {
         max-width: 500px; /* Ajuste de ancho */
+        height: 560px;
     }
 
     .modServicio-items {
@@ -116,12 +102,13 @@
         align-items: center;
         margin-top: 0 !important;
         padding-top: 0;
-        height: 620px;
+        height: 750px;
         width: 100% ;
     }
 
     .servicio-card {
         width: 95% !important;
+        margin-top: 0;
         max-width: 350px;
         box-shadow: none;
     }
@@ -129,7 +116,7 @@
     .servicio-texto {
         flex-grow: 1;
         width: 90%;
-        height: 230px;
+        height: 240px;
         overflow: hidden;
         margin: auto;
         text-overflow: ellipsis;
@@ -146,6 +133,7 @@
         width: 90%; 
         text-align: center;
     }
+    
 }
 
 

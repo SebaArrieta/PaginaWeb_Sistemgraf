@@ -4,14 +4,15 @@ import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AOS from "aos";  /* Acá para efectos */
+import AOS from "aos";
 import "aos/dist/aos.css"; 
 import DOMPurify from "dompurify";
-import Loading from "../components/Loading";
 
-
+/* Archivos css */
 import "./Inicio.css";
 import "./InicioPequeño.css";
+
+/* Imágenes de secciones */
 import Aboutus from "./imagen/about-us.png";
 import socio1 from "../nosotros/nosotrosImg/Logo-Bsolutions-Editable.png"; 
 import socio2 from "./imagen/strategy_logo_orange.svg";
@@ -29,6 +30,10 @@ import Mantenimiento from "./imagen/mantenimiento.png";
 import Suscripcion from "./imagen/suscripcion.png";
 import Escalabilidad from "./imagen/scalability.png";
 
+/* Importar imagenes de inico acá, cambiar ruta si es necesario */
+import Imagen1 from "./imagen/principal2.webp";
+import Imagen2 from "./imagen/Imagen2.png";
+import Imagen3 from "./imagen/Imagen3.png";
 
 import { getServices }  from "../repositorios/Conexión";
 
@@ -36,51 +41,46 @@ const Inicio = () => {
   const history = useNavigate ();
   const [servicios, setServicios] = useState([]);
   const [copied, setCopied] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
 
+  /* Data de slides de Inicio */
+  const slidesData = [
+    {
+      image: Imagen1,
+      title: "Lideramos la transformación empresarial hacia un futuro de excelencia y crecimiento sostenible.",
+      buttonText: "Conoce nuestros servicios",
+      link: "/sistemgraf/servicios",
+    },
+    {
+      image: Imagen2,
+      title: "Impulsamos la innovación con soluciones estratégicas para cada negocio.",
+      buttonText: "Descubre más",
+      link: "/sistemgraf/servicios",
+    },
+    {
+      image: Imagen3,
+      title: "Construimos un futuro sostenible con tecnología y visión de largo plazo.",
+      buttonText: "Explora nuestras soluciones",
+      link: "/sistemgraf/servicios",
+    },
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchServices = async () => {
         try {
             const data = await getServices();
-
             setServicios(data || []); // Set an empty array as fallback
-            if (!data || data.length === 0) {
-              setLoading(false);
-            }
           } catch (error) {
             console.error("Error al obtener servicios:", error);
             setServicios([]); // Prevent undefined state
-            setLoading(false);
           }
     };
 
     fetchServices();
   }, []);
 
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
 
-  useEffect(() => {
-    if (imagesLoaded === 1 && servicios.length > 0) {
-      setLoading(false);
-    }
-  }, [imagesLoaded, servicios.length]);
-
-  const parseDescription = (text) => {
-    // Divide el texto en partes que coincidan con *algo*
-    return text.split(/(\*[^*]+\*)/g).map((segment, index) => {
-      // Si la parte empieza y termina con asteriscos, se elimina y se envuelve en <strong>
-      if (segment.startsWith("*") && segment.endsWith("*")) {
-        return <strong key={index}>{segment.slice(1, -1)}</strong>;
-      }
-      return segment;
-    });
-  };
-
+  /* Settings se las cards de Nuestras soluciones */
   const [activeIndex, setActiveIndex] = useState(0);
 
   const settings = {
@@ -110,37 +110,74 @@ const Inicio = () => {
     ],
   };
 
+  /* Setting de slides de Inicio */
+  const settingsInicio = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      fade: true, 
+      responsive: [
+        { breakpoint: 1024, settings: { 
+          slidesToShow: 1,
+          centerMode: true,
+          centerPadding: "0px",
+        } },
+        { breakpoint: 768, settings: { 
+          slidesToShow: 1,
+          centerMode: true,
+          centerPadding: "0px",
+          adaptiveHeight: true,
+          arrows: false, 
+        } },
+        
+      ],
+  };
+
   /* Acá para efectos */
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
-    /*Esto es para copiar al portapapeles. */
-    const copyToClipboard = (text, id) => {
-      navigator.clipboard.writeText(text);
-      setCopied(id);
 
-      setTimeout(() => {
-        setCopied(null);
-      }, 1500); // Cambia el color por 1 segundo
-    };
+  
+  /* Esto es para copiar al portapapeles. */
+  const copyToClipboard = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopied(id);
+
+    setTimeout(() => {
+      setCopied(null);
+    }, 1500); // Cambia el color por 1 segundo
+  };
 
     return (
       <>
-        {/* La imágen de inicio se encuentra en el archivo Inicio.css, dentro del estilo "inicio-container" */}
-        <div className="inicio-container">
-          {loading && <Loading />} 
-          <div className="inicio-text" data-aos="fade-up">  
-            <h1>Lideramos la transformación empresarial hacia un futuro de excelencia y crecimiento sostenible.</h1>
-            <NavLink to="/servicios" className="btn-servicios">Conoce nuestros servicios</NavLink>
-          </div>
+        {/* Inicio */}
+        <div className="prueba-slider" data-aos="fade-up">
+          <Slider {...settingsInicio}>
+            {slidesData.map((slide, index) => (
+              <div key={index} className="prueba-container">
+                <img src={slide.image} className="prueba-img"/>
+                <div className="prueba-overlay">
+                  <div className="prueba-text">
+                    <h1>{slide.title}</h1>
+                    <NavLink to={slide.link} className="prueba-btn">{slide.buttonText}</NavLink>
+                  </div>
+                </div>
+                
+              </div>
+            ))}
+          </Slider>
         </div>
-        
 
+        {/* Acerca de */}
         <div className="acercaDe-container">
           <div className="acercaDe-content" data-aos="fade-up">
             {/* Imagen de la empresa o el gato */}
             <div className="acercaDe-imagen">
-              <img src={ Aboutus } loading="lazy" alt="Acerca de Sistemgraf" onLoad={handleImageLoad}/>
+              <img src={ Aboutus } loading="lazy" alt="Acerca de Sistemgraf"/>
             </div>
 
             {/* Texto informativo */}
@@ -155,7 +192,7 @@ const Inicio = () => {
               </p>
               
               {/* Botón Leer más */}
-              <NavLink to="/nosotros" className="btn-leer-mas">Leer más</NavLink>
+              <NavLink to="/sistemgraf/nosotros" className="btn-leer-mas">Leer más</NavLink>
             </div>
             </div>
 
@@ -184,6 +221,8 @@ const Inicio = () => {
             </div>
         </div>
 
+
+        {/* Nuestras soluciones */}
         <div className="soluciones-container" >
           <h2 className="titulo-soluciones" data-aos="fade-up">Nuestras Soluciones</h2>
           <Slider  {...settings}>
@@ -214,7 +253,7 @@ const Inicio = () => {
 
                   {/* Contenedor del botón */}
                   <div className="servicio-boton">
-                    <NavLink to="/servicios" className="btn-mas-info">Leer más</NavLink>
+                    <NavLink to="/sistemgraf/servicios" className="btn-mas-info">Leer más</NavLink>
                   </div>
                 </div>
               </div>
@@ -222,8 +261,9 @@ const Inicio = () => {
           </Slider>
         </div>
 
+
+        {/* Modalidad de servicios */}
         <div className="modServicio">
-          
           {/* B-Solutions */}
           <div className="modServicio-container" data-aos="fade-up">
             <h2 className="titulo">Modalidad de Servicio</h2>
@@ -281,6 +321,7 @@ const Inicio = () => {
           </div>
         </div>
 
+        {/* Nuestros socios */}
         <div className="modServicio">
           <div className="modServicio-container" data-aos="fade-up">
             <h2 className="titulo">Nuestros socios estratégicos</h2>
@@ -291,7 +332,7 @@ const Inicio = () => {
           </div> 
         </div>
 
-        
+        {/* Contacto */}
         <div className="contacto-container">
           {/* Encabezado centrado sobre ambas columnas */}
           <div className="contacto-header" data-aos="fade-up">
@@ -338,6 +379,8 @@ const Inicio = () => {
           </div>
         </div>
 
+
+        {/* Mapa */}
         <div className="map-container">
           <div className="map-content" data-aos="fade-up">
             <iframe

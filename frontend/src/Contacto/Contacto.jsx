@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useLocation} from "react-router"
 import "./Contacto.css";
+import { sendEmail } from "../repositorios/Conexión";
 import ContactSection from "./ContactSection";
 import DOMPurify from "dompurify";
 
@@ -41,13 +42,7 @@ const ContactForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5001/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = sendEmail(formData)
 
       const result = await response.json();
       setLoading(false);

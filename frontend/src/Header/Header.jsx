@@ -14,7 +14,7 @@ export default function Header() {
     >
       <div className="contenedor-navbar">
             {/* Marca (logo + texto) */}
-            <Navbar.Brand as={Link} to="/inicio" className="contenedor-img">
+            <Navbar.Brand as={Link} to="/sistemgraf/inicio" className="contenedor-img">
               <img
                   src={Logo}
                   className='logo img'
@@ -31,28 +31,28 @@ export default function Header() {
             {/* Links colapsables en pantallas pequeñas */}
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="contenedor-botones"> 
-                <NavLink to="/inicio" 
+                <NavLink to="/sistemgraf/inicio" 
                   className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
                 >
                 Inicio
                 </NavLink>
-                <NavLink to="/servicios" 
+                <NavLink to="/sistemgraf/servicios" 
                   className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
                 >
                     Servicios
                 </NavLink>
-                <NavLink to="/blog" 
+                <NavLink to="/sistemgraf/blog" 
                   className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
                 >
                     Blog
                 </NavLink>
-                <NavLink to="/nosotros"                  
+                <NavLink to="/sistemgraf/nosotros"                  
                 className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
@@ -74,7 +74,7 @@ export default function Header() {
               </div>
 
               {/* Botón de Contacto */}
-              <NavLink to="/contact" className="contact-button">
+              <NavLink to="/sistemgraf/contact" className="contact-button">
                 Contactar
               </NavLink>
             </div>

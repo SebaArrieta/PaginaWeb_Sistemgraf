@@ -17,5 +17,6 @@ Comandos de instalación para el frontend usados:
     #npm install react-bootstrap
     npm install react-whatsapp-button
     
+Para cargar la pagina, 
 
     

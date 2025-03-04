@@ -5,6 +5,7 @@ import "./Servicio.css";
 import { getServices } from "../repositorios/Conexión";
 import DOMPurify from "dompurify";
 import Loading from "../components/Loading";
+import AOS from "aos";
 
 const Servicios = () => {
   const history = useNavigate();
@@ -18,12 +19,17 @@ const Servicios = () => {
 
     const fetchServices = async () => {
       try {
-        const data = await getServices();
-        setServicios(data || []);
+        // Intentar obtener datos de localStorage
+        const storedData = localStorage.getItem("servicios");
 
-        // If there are no images, mark as loaded immediately
-        if (!data || data.length === 0) {
-          setLoading(false);
+        if (storedData) {
+          setServicios(JSON.parse(storedData));
+          setLoading(false); // Datos listos desde localStorage
+        } else {
+          const data = await getServices();
+          setServicios(data || []);
+          localStorage.setItem("servicios", JSON.stringify(data || []));
+          setLoading(false); // Datos cargados desde API
         }
       } catch (error) {
         console.error("Error al obtener servicios:", error);
@@ -33,7 +39,7 @@ const Servicios = () => {
     };
 
     fetchServices();
-
+    AOS.init({ duration: 1000 });
     const handleResize = () => {
       setIsWide(window.innerWidth <= 1500);
     };
@@ -54,7 +60,7 @@ const Servicios = () => {
 
   const handleContactClick = (servicioName) => {
     const message = `Deseo saber más sobre los detalles de ${servicioName}`;
-    history(`/contact?message=${encodeURIComponent(message)}.`);
+    history(`/sistemgraf/contact?message=${encodeURIComponent(message)}.`);
   };
 
   return (
@@ -62,13 +68,10 @@ const Servicios = () => {
       {loading && <Loading />} 
 
       <div className="row justify-content-center card-container">
-        <h1 className="title-page">Nuestros Servicios para Potenciar tu Negocio</h1>
-        {servicios.map((servicio, ID) => {
-          const colores = ["#A3E7FF", "#FFEB8A", "#9EC6E0"];
-          const colorFondo = colores[ID % colores.length];
-
+        <h1 className="title-page" style={{ marginBottom: '-35px' }}>Nuestros Servicios para Potenciar tu Negocio</h1>
+        {servicios.map((servicio) => {
           return (
-            <div key={ID} className={isWide ? "col-md-6 mb-4" : "col-md-4 mb-4"}>
+            <div key={servicio.ID} className={isWide ? "col-md-6 mb-4" : "col-md-4 mb-4"}>
               <div className="servicio-card" data-aos="fade-up">
                 <div className="servicio-img-container">
                   <img

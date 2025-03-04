@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./Blog.css";
 import Loading from "../components/Loading";
-
+import AOS from "aos";
 
 import { getBlogs }  from "../repositorios/Conexión";
 const Blogs = () => {
-  const history = useNavigate ();
   const [Blogs, setBlogs] = useState([]);
   const [isWide, setIsWide] = useState(window.innerWidth <= 1500);
   const [loading, setLoading] = useState(true);
@@ -23,7 +22,7 @@ const Blogs = () => {
             const data = await getBlogs();
             console.log(data)
             setBlogs(data || []); // Set an empty array as fallback
-            if (!data || data.length === 0) {
+            if (data.length === 0) {
               setLoading(false);
             }
           } catch (error) {
@@ -34,7 +33,7 @@ const Blogs = () => {
     };
 
     fetchServices();
-
+    AOS.init({ duration: 1000 });
     const handleResize = () => {
       setIsWide(window.innerWidth <= 1500);
     };
@@ -86,7 +85,7 @@ const Blogs = () => {
               </div>
 
               <div className="servicio-boton">
-                <NavLink to={`/blog/${Blog.ID}`} className="btn-mas-info">Leer más</NavLink>
+                <NavLink to={`/sistemgraf/blog/${Blog.ID}`} className="btn-mas-info">Leer más</NavLink>
               </div>
             </div>
           </div>

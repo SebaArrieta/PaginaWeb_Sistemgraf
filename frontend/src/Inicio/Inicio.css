@@ -4,6 +4,7 @@
     --color-negro: #181818; 
     --color-azulOscuro: #022C43;
     --color-azulSistemgraf: #006084; 
+    --color-azulSistemgrafClaro: #008fc3; 
     --color-amarilloSistemgraf: #F2CD00;   
     --color-azulClaro: #F0F6F8;
     --color-blanco: #ffffff;   
@@ -14,45 +15,59 @@
 /*-----------------------------------INICIO-----------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-
-.inicio-container {
+.prueba-slider {
+    width: 100%;
+    height: 100vh; /* Usa la altura completa de la ventana */
     position: relative;
-    width: 100%; /* Ajusta el ancho */
-    height: 900px; /* Ajusta la altura */
-    background-image: url("./imagen/principal2.webp"); /* 🔹 Cambia esto por la ruta real */
-    background-size: cover; /* 🔹 Asegura que la imagen cubra todo el contenedor */
-    background-position: center; /* 🔹 Centra la imagen */
-    background-repeat: no-repeat; /* 🔹 Evita que la imagen se repita */
-    color: white; /* Color de texto */
-    padding: 40px; /* Espaciado interno */
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
     overflow: hidden;
 }
 
+/*  Estilizar cada slide */
+.prueba-container {
+    position: relative;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
 
-.inicio-container::before {
+.prueba-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Capa de fondo oscura */
+.prueba-overlay {
     content: "";
     position: absolute;
+    align-content: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1818185c; /* 🔹 Ajusta la opacidad (0.0 transparente, 1.0 sólido) */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-.inicio-text {
-    width: 60%; /* Ocupa 60% del ancho para el texto */
+/* Texto sobre la imagen */
+.prueba-text {
+    width: 60%;
     margin: auto;
     text-align: left;
-    z-index: 1;
+    z-index: 2;
+    position: relative;
 }
 
-.inicio-text h1 {
+.prueba-text h1 {
     font-family: 'Rubik', sans-serif;
     font-size: 60px;
     margin-bottom: 20px;
@@ -60,8 +75,9 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
-.btn-servicios {
-    background-color: var(--color-amarilloSistemgraf); /* Amarillo */
+/* Botón de acción */
+.prueba-btn {
+    background-color: var(--color-amarilloSistemgraf);
     border: none;
     padding: 15px 20px;
     display: inline-flex;
@@ -72,22 +88,12 @@
     text-decoration: none !important;
     font-weight: bold;
     transition: transform 0.4s ease-in-out;
+    z-index: 2;
+    position: relative;
 }
 
-.btn-servicios:hover {
-    transform: scale(1.1); 
-}
-
-.inicio-imagen {
-    width: 48%;
-    display: flex;
-    justify-content: right;
-}
-
-.inicio-imagen img {
-    max-width: 1400px;
-    width: 100%;
-    height: auto;
+.prueba-btn:hover {
+    transform: scale(1.1);
 }
 
 
@@ -300,7 +306,24 @@
 
 
 /* Slider ------------------------------- */
-
+/* Aplica solo a prueba slider */
+.prueba-slider .slick-slide {
+    margin: 0 !important;
+    height: 100vh;
+    margin-top: 3px !important;
+  }
+  
+  .prueba-slider .slick-list {
+    padding: 0 !important;
+    height: 100vh;
+  }
+  
+  .prueba-slider .slick-track {
+    display: flex !important;
+    height: 100vh;
+    gap: 0 !important;
+  }
+  
 .slick-list {
     overflow: hidden; 
 }
@@ -310,8 +333,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-top: 70px;
-    height: 650px; /* Reducimos la altura de las tarjetas */
+    height: 750px; 
     transition: transform 0.5s ease-in-out;
 }
 
@@ -341,7 +363,8 @@
 /* Asegurar que las flechas no se oculten */
 .slick-prev::before,
 .slick-next::before {
-    color: var(--color-negro);
+    -webkit-text-stroke: 2px var(--color-azulOscuro); 
+    color: var(--color-blanco);
     font-size: 50px;
 }
 
@@ -350,6 +373,7 @@
 .servicio-card {
     margin: 0 auto;
     background: white;
+    margin-top: 90px;
     text-align: left; /* Alinear texto a la izquierda */
     max-width: 380px; /* Ajuste de ancho */
     height: 550px; /* Hacer la tarjeta más alargada */
