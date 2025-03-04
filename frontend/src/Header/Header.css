@@ -186,7 +186,9 @@ html, body {
     -webkit-mask-image: none;
 }
 .navbar-collapse {
-    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 100%;
     right: 0;
     width: 100%; /* Full width */
@@ -197,6 +199,7 @@ html, body {
 .navbar-collapse.show {
     display: block; /* Cuando se activa el toggle, mostramos el menú */
 }
+/* Adaptación a movil.*/
 @media (min-width: 992) {
     .navbar-toggler {
         color: #f2cd00;
@@ -278,3 +281,62 @@ html, body {
         display: block; /* Asegura que el menú se muestra cuando se hace click en el toggler */
     }
   }
+  /* Adaptacion a laptops. */
+@media (min-width: 992px) and (max-width: 1087px) {
+    .navbar {
+        width: 100%;
+        padding: 0 1px; /* Make sure padding is not too large */
+    }
+
+    .navbar-brand, .navbar-toggler, .contact-button {
+        max-width: 100%; /* Prevent overflowing */
+        white-space: nowrap; /* Avoid text wrapping and make sure it's contained */
+    }
+
+    .logo-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .contact-button {
+        flex-shrink: 0; /* Prevent it from shrinking */
+        margin-left: auto; /* Align it to the right */
+    }
+    /* Ensure nav links and buttons adjust to available space */
+    .navbar-nav {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .navbar-collapse {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .social-icons {
+        gap: 10px;
+        justify-content: flex-end; /* Make sure icons don't extend past the width */
+    }
+
+    .contact-button {
+        margin-left: auto; /* Push the button to the right */
+        background-color: #f2cd00;
+        color: #181818;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .social-container {
+        display: flex;
+        align-items: center; /* Centra verticalmente los elementos */
+        margin-left: auto; 
+        min-width: 200px;
+        gap: 15px; /* Espacio entre iconos y botón */
+      }
+}

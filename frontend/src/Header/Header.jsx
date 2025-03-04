@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FaBars, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
@@ -6,6 +6,15 @@ import "./Header.css";
 import Logo from "./imagen/LogoBlanco.png";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <Navbar 
       expand="lg"                      // Se expande a "horizontal" a partir de lg
@@ -29,12 +38,13 @@ export default function Header() {
 
 
             {/* Links colapsables en pantallas pequeñas */}
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="contenedor-botones"> 
                 <NavLink to="/sistemgraf/inicio" 
                   className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
+                  onClick={closeMenu} // Cierra el menú cuando se hace clic
                 >
                 Inicio
                 </NavLink>
@@ -42,6 +52,7 @@ export default function Header() {
                   className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
+                  onClick={closeMenu} // Cierra el menú cuando se hace clic
                 >
                     Servicios
                 </NavLink>
@@ -49,6 +60,7 @@ export default function Header() {
                   className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
+                  onClick={closeMenu} // Cierra el menú cuando se hace clic
                 >
                     Blog
                 </NavLink>
@@ -56,6 +68,7 @@ export default function Header() {
                 className={({ isActive }) => 
                     isActive ? "nav-links active-link filled-link" : "nav-links"
                   }
+                  onClick={closeMenu} // Cierra el menú cuando se hace clic
                 >
                     Nosotros
                 </NavLink>
@@ -74,7 +87,7 @@ export default function Header() {
               </div>
 
               {/* Botón de Contacto */}
-              <NavLink to="/sistemgraf/contact" className="contact-button">
+              <NavLink to="/sistemgraf/contact" className="contact-button" onClick={closeMenu}>
                 Contactar
               </NavLink>
             </div>

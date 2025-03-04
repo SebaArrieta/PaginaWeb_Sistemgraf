@@ -43,11 +43,13 @@
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-  .servicio-card-serv {
+  .custom-servicio-card{
+    margin-top: 45px;
     max-width: 100%;
   }
 
   .container-new {
+    margin-top: 20px;
     padding: 20px;
   }
 }

@@ -72,7 +72,7 @@ const Servicios = () => {
         {servicios.map((servicio) => {
           return (
             <div key={servicio.ID} className={isWide ? "col-md-6 mb-4" : "col-md-4 mb-4"}>
-              <div className="servicio-card" data-aos="fade-up">
+              <div className="servicio-card custom-servicio-card" data-aos="fade-up">
                 <div className="servicio-img-container">
                   <img
                     src={servicio.Img}

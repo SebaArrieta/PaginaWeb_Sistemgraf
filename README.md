@@ -17,6 +17,6 @@ Comandos de instalación para el frontend usados:
     #npm install react-bootstrap
     npm install react-whatsapp-button
     
-Para cargar la pagina, 
-
+Para cargar la pagina, se necesita un .env con:
+    REACT_APP_API_URL=http://localhost:5001
     
