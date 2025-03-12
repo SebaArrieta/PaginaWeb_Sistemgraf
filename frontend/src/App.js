@@ -2,14 +2,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
 import { useEffect } from "react";
 import { FloatingWhatsApp } from "react-floating-whatsapp"; // Importa la librería
 
-import ContactForm from './Contacto/Contacto';
-import Inicio from './Inicio/Inicio';
-import Header from "./Header/Header";
-import Footer from './Footer/Footer';
-import Nosotros from './nosotros/nosotros';
-import Servicios from './Servicio/Servicio';
-import Blogs from './Blog/Blog';
-import BlogDetail from './Blog/BlogDetail/BlogDetail'
+import ContactForm from './Contacto/Contacto.jsx';
+import Inicio from './Inicio/Inicio.jsx';
+import Header from "./Header/Header.jsx";
+import Footer from './Footer/Footer.jsx';
+import Nosotros from './nosotros/nosotros.jsx';
+import Servicios from './Servicio/Servicio.jsx';
+import Blogs from './Blog/Blog.jsx';
+import BlogDetail from './Blog/BlogDetail/BlogDetail.jsx'
 function App() {
   useEffect(() => {
     const script = document.createElement("script");
@@ -29,6 +29,7 @@ function App() {
       <Header />
         <Routes>
           {/* Rutas públicas */}
+          <Route path="/" element={<Navigate to="/sistemgraf/inicio" replace />} />
           <Route path="/sistemgraf" element={<Navigate to="/sistemgraf/inicio" replace />} />
           <Route path="/sistemgraf/inicio" element={<Inicio/>} />
           <Route path="/sistemgraf/contact" element={<ContactForm/>} />

@@ -4,7 +4,11 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_LINK, // Permitir solicitudes desde el frontend
+    credentials: true, // Permitir el envío de cookies
+}));
+
 app.use(express.json());
 app.use(require("./routes/routes"));
 

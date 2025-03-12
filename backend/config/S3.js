@@ -5,8 +5,15 @@ const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 const region = process.env.S3_REGION;
 const Bucket = process.env.S3_BUCKET;
+const endpoint = process.env.S3_ENDPOINT;
 
-const client_s3 = new S3Client({ credentials: { accessKeyId: accessKeyId, secretAccessKey: secretAccessKey }, region: region });
+const client_s3 = new S3Client({ 
+    forcePathStyle: false,
+    endpoint: endpoint,
+    credentials: { 
+        accessKeyId: accessKeyId, 
+        secretAccessKey: secretAccessKey }, 
+    region: region });
 
 const getObjectSignedUrl = async (fileName) => {
     const input_s3 = {
