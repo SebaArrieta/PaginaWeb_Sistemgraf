@@ -19,18 +19,11 @@ const Servicios = () => {
 
     const fetchServices = async () => {
       try {
-        // Intentar obtener datos de localStorage
-        const storedData = localStorage.getItem("servicios");
-
-        if (storedData) {
-          setServicios(JSON.parse(storedData));
-          setLoading(false); // Datos listos desde localStorage
-        } else {
-          const data = await getServices();
-          setServicios(data || []);
-          localStorage.setItem("servicios", JSON.stringify(data || []));
-          setLoading(false); // Datos cargados desde API
-        }
+        const data = await getServices();
+        setServicios(data || []);
+        localStorage.setItem("servicios", JSON.stringify(data || []));
+        setLoading(false); // Datos cargados desde API
+      
       } catch (error) {
         console.error("Error al obtener servicios:", error);
         setServicios([]);

@@ -19,7 +19,7 @@ export default function Footer() {
               <Nav.Link as={Link} to="/sistemgraf/servicios" className="text-white">Servicios</Nav.Link>
               <Nav.Link as={Link} to="/sistemgraf/blog" className="text-white">Blog</Nav.Link>
               <Nav.Link as={Link} to="/sistemgraf/nosotros" className="text-white">Nosotros</Nav.Link>
-              <Nav.Link as="a" href="https://www.youtube.com/" className="text-white">Intranet</Nav.Link> {/* Cambiar ruta a CMS */}
+              <Nav.Link as="a" href="http://159.203.137.184:9000/" className="text-white">Intranet</Nav.Link> {/* Cambiar ruta a CMS */}
             </Nav>
           </div>
 
