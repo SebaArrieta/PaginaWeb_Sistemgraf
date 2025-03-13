@@ -29,7 +29,7 @@ export default function Footer() {
               </a>
             </Nav>
           </div>
-
+          
           {/* Mid Section: logo*/}
           <div className="col-lg-4 col-md-12 text-center"> 
             <Navbar.Brand as={Link} to="/sistemgraf/inicio">

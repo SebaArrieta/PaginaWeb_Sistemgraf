@@ -114,7 +114,15 @@
         mask-image: none; /* Asegura que el ícono de Bootstrap se vea */
         -webkit-mask-image: none;
     }
-
+    .logo-container {
+        position: relative;
+        z-index: 2; /* Asegura que el logo no sobreescriba enlaces */
+      }
+      
+      .intranet-link {
+        position: relative;
+        z-index: 3; /* Hace que el enlace esté siempre encima del logo */
+      }
     .navbar-collapse {
         display: block; /* Asegura que el menú se muestra cuando se hace click en el toggler */
     }
