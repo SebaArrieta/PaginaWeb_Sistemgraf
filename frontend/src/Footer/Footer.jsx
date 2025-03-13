@@ -32,13 +32,11 @@ export default function Footer() {
           
           {/* Mid Section: logo*/}
           <div className="col-lg-4 col-md-12 text-center"> 
-            <Navbar.Brand as={Link} to="/sistemgraf/inicio">
-              <img
-                src={Logo}
-                className='logo-footer'
-                alt="Sistemgraf"
-              />
-            </Navbar.Brand>
+          <Navbar.Brand className="logo-container">
+            <Link to="/sistemgraf/inicio">
+              <img src={Logo} className="logo-footer" alt="Sistemgraf" />
+            </Link>
+          </Navbar.Brand>
             <p>© 2025 Sistemgraf. Todos los derechos reservados.</p>
           </div>
 

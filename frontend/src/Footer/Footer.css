@@ -87,6 +87,14 @@
 .navbar-collapse.show {
     display: block; /* Cuando se activa el toggle, mostramos el menú */
 }
+.logo-container {
+    display: inline-block;
+}
+.logo-footer {
+    max-width: 150px; /* Ajusta el tamaño del logo */
+    height: auto;
+    pointer-events: auto; /* Permite hacer clic en el enlace correctamente */
+}
 @media (min-width: 992px) {
     .navbar-toggler {
         color: #f2cd00;
@@ -99,6 +107,12 @@
     
     .navbar-toggler {
       display: block;
+    }
+    .navbar-brand {
+        padding-top: 20px; /* Ajusta el valor según necesidad */
+    }
+    .col-md-12.text-center {
+        padding-top: 20px; /* Agrega espacio debajo del logo */
     }
     .navbar-collapse {
         position: absolute;
@@ -114,11 +128,14 @@
         mask-image: none; /* Asegura que el ícono de Bootstrap se vea */
         -webkit-mask-image: none;
     }
-    .logo-container {
+    .nav-link {
         position: relative;
-        z-index: 2; /* Asegura que el logo no sobreescriba enlaces */
-      }
-      
+        z-index: 2;
+    }
+    .logo-footer {
+        position: relative;
+        z-index: 1;
+    }
       .intranet-link {
         position: relative;
         z-index: 3; /* Hace que el enlace esté siempre encima del logo */
