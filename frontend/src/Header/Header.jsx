@@ -92,6 +92,10 @@ export default function Header() {
             <NavLink to="/sistemgraf/contact" className="contact-button" onClick={closeMenu}>
               Contactar
             </NavLink>
+
+            <NavLink to="http://159.203.137.184:5000/" className="contact-button" onClick={closeMenu}>
+              Intranet
+            </NavLink>
           </div>
           
           </Navbar.Collapse>
