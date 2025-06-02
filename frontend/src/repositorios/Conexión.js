@@ -6,7 +6,18 @@ router.get("/services/getServices", ServiceController.getServices);
 router.put("/services/modifyService", verifyToken, ServiceController.modifyService); 
 router.delete("/services/deleteService/:id", verifyToken, ServiceController.deleteService);  
 */
-const API_URL = process.env.REACT_APP_API_URL; //
+
+const domain = window.location.hostname;
+
+let API_URL = "";
+
+if (domain.includes("inteligenciaintegrada.cl")) {
+  API_URL = "https://inteligenciaintegrada.cl";
+} else if (domain.includes("sistemgraf.cl")) {
+  API_URL = "https://sistemgraf.cl";
+} else {
+  API_URL = "http://localhost:5000"; 
+}
 
 const getServices = () =>
     axios
