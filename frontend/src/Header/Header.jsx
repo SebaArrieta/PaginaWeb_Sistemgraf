@@ -93,9 +93,9 @@ export default function Header() {
               Contactar
             </NavLink>
 
-            <NavLink to="https://inteligenciaintegrada.cl/intranet/" className="contact-button" onClick={closeMenu}>
+            <a href="https://inteligenciaintegrada.cl/intranet" className="contact-button" onClick={closeMenu}>
               Intranet
-            </NavLink>
+            </a>
           </div>
           
           </Navbar.Collapse>
