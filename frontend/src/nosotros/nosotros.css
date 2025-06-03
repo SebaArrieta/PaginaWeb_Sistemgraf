@@ -2,7 +2,7 @@
 /* Título */
 .nosotros-title {
     font-size: 3.5em;
-    margin-bottom: 0 auto;
+    margin-bottom: auto;
     color: #fff;
     font-family: 'GoodTimes', sans-serif !important;
   }
@@ -10,15 +10,23 @@
   /* Contenedor principal */
   .nosotros-container {
     text-align: center;
+    max-height: auto;
+    max-width: 1200px;
+    padding-top: 30px;
+    margin: auto;
+  }
+
+  .general-container {
+    text-align: center;
     max-width: 1500px;
-    margin: 0 auto;
+    margin: auto;
   }
   
   .equipo-container{
     text-align: center;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px;
+    margin: auto;
+    padding-top: 30px;
     border-radius: 50px;
   }
   /* Estilos para las tarjetas de misión y visión */
@@ -108,7 +116,6 @@
     border: none; /* Sin borde */
     padding: 15px;
 }
-
 
 
 .text-center {

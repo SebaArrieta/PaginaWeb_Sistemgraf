@@ -93,7 +93,7 @@ export default function Header() {
               Contactar
             </NavLink>
 
-            <NavLink to="http://159.203.137.184:5000/" className="contact-button" onClick={closeMenu}>
+            <NavLink to="https://inteligenciaintegrada.cl/intranet/" className="contact-button" onClick={closeMenu}>
               Intranet
             </NavLink>
           </div>
