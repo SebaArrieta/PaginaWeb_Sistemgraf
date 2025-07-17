@@ -10,6 +10,8 @@ import Nosotros from './nosotros/nosotros.jsx';
 import Servicios from './Servicio/Servicio.jsx';
 import Blogs from './Blog/Blog.jsx';
 import BlogDetail from './Blog/BlogDetail/BlogDetail.jsx'
+import NotFound from "./404/NoEncontrado.jsx";
+
 function App() {
   useEffect(() => {
     const script = document.createElement("script");
@@ -37,6 +39,8 @@ function App() {
           <Route path="/sistemgraf/servicios" element={<Servicios/>} />
           <Route path="/sistemgraf/blog" element={<Blogs/>} />
           <Route path="/sistemgraf/blog/:id" element={<BlogDetail />} />
+
+          <Route path="*" element={<NotFound />} />
           {/* Rutas protegidas */}
 
         </Routes>

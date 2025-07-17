@@ -1,0 +1,41 @@
+:root {
+    --color-negro: #181818; 
+    --color-azulOscuro: #022C43;
+    --color-azulSistemgraf: #006084; 
+    --color-azulSistemgrafClaro: #008fc3; 
+    --color-amarilloSistemgraf: #F2CD00;   
+    --color-azulClaro: #F0F6F8;
+    --color-blanco: #ffffff;   
+  }
+
+
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------INICIO-----------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+.not-found-container {
+    width: 100%;
+    height: 100vh; /* Usa la altura completa de la ventana */
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-azulOscuro);
+    color: white;
+}
+
+.imagen {
+  width: 25%;
+  height: auto;
+  display: block;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .imagen {
+    width: 50%;
+  }
+}

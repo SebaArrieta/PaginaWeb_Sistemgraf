@@ -117,7 +117,7 @@ const Inicio = () => {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 10000,
       fade: true, 
       responsive: [
         { breakpoint: 1024, settings: { 
