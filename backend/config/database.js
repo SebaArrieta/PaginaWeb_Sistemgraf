@@ -13,7 +13,7 @@ const connection = mysql.createPool({
     rejectUnauthorized: true,
   },
   waitForConnections: true,
-  connectionLimit: 10,     // Ajusta el límite según tus necesidades
+  connectionLimit: 50,     // Ajusta el límite según tus necesidades
   queueLimit: 0
 });
 

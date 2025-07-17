@@ -60,10 +60,10 @@ const Nosotros = () => {
     <div >
       {/* Contenedor de ancho completo para la sección principal, misión y visión */}
       <div className="full-width-container bg-gradiente text-white" style={{ paddingTop: '100px' }}>
-        <div className="nosotros-container" data-aos="fade-up">
+        <div className="general-container" data-aos="fade-up">
           <div className="row">
             <div className="col-12 text-center mb-4">
-              <h1 className="nosotros-title " ><strong>Sobre Sistemgraf</strong></h1>
+              <h1 className="nosotros-title" ><strong>Sobre Sistemgraf</strong></h1>
             </div>
 
             {/* Sección principal con imagen y texto */}
@@ -93,7 +93,7 @@ const Nosotros = () => {
 
               </div>
               <div className="col-12 col-md-6 text-center ">
-                <img src={principal} alt="Descripción" className="img-large" style={{ maxWidth: "100%", height: "auto" }}/>
+                <img src={principal} alt="Descripción" className="img-large" style={{ maxWidth: "100%", height: "380px" }}/>
               </div>
             </div>
           </div>
@@ -211,7 +211,7 @@ const Nosotros = () => {
       {/* Contenedor de ancho completo para "Nuestros socios" */}
       <div className="full-width-container bg-lightblue text-black">
         <div className="nosotros-container" data-aos="fade-up">
-          <h2 className="title valores-title text-center"><strong>Nuestros Socios Estratégicos</strong></h2>
+          <h2 className="title valores-title text-center" ><strong>Nuestros Socios Estratégicos</strong></h2>
           <div className="row">
             <div className="col-md-6 mb-4">
               <div className="col-md-12">

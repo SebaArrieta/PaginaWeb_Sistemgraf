@@ -20,7 +20,7 @@ export default function Footer() {
               <Nav.Link as={Link} to="/sistemgraf/blog" className="text-white">Blog</Nav.Link>
               <Nav.Link as={Link} to="/sistemgraf/nosotros" className="text-white">Nosotros</Nav.Link>
               <a 
-                href="http://159.203.137.184:5000/" 
+                href="https://inteligenciaintegrada.cl/intranet/" 
                 className="nav-link text-white" 
                 target="_blank" 
                 rel="noopener noreferrer"
