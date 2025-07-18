@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
 import DOMPurify from "dompurify";
+import Tarjeta from "../components/Tarjetas/Tarjeta";
 
 /* Archivos css */
 import "./Inicio.css";
@@ -48,19 +49,19 @@ const Inicio = () => {
       image: Imagen1,
       title: "Lideramos la transformación empresarial hacia un futuro de excelencia y crecimiento sostenible.",
       buttonText: "Conoce nuestros servicios",
-      link: "/sistemgraf/servicios",
+      link: "/servicios",
     },
     {
       image: Imagen2,
       title: "Impulsamos la innovación con soluciones estratégicas para cada negocio.",
       buttonText: "Descubre más",
-      link: "/sistemgraf/servicios",
+      link: "/servicios",
     },
     {
       image: Imagen3,
       title: "Construimos un futuro sostenible con tecnología y visión de largo plazo.",
       buttonText: "Explora nuestras soluciones",
-      link: "/sistemgraf/servicios",
+      link: "/servicios",
     },
   ];
 
@@ -85,7 +86,7 @@ const Inicio = () => {
 
   const settings = {
     dots: true,
-    centerPadding: "0px",
+    centerPadding: "100px",
     infinite: true,
     centerMode: true,
     arrows: true,
@@ -192,7 +193,7 @@ const Inicio = () => {
               </p>
               
               {/* Botón Leer más */}
-              <NavLink to="/sistemgraf/nosotros" className="btn-leer-mas">Leer más</NavLink>
+              <NavLink to="/nosotros" className="btn-leer-mas">Leer más</NavLink>
             </div>
             </div>
 
@@ -224,15 +225,22 @@ const Inicio = () => {
 
         {/* Nuestras soluciones */}
         <div className="soluciones-container" >
-          <h2 className="titulo-soluciones" data-aos="fade-up">Nuestras Soluciones</h2>
-          <Slider  {...settings}>
+          <h2 className="titulo-soluciones" data-aos="fade-up" style={{ marginBottom: '50px' }}>Nuestras Soluciones</h2>
+          <Slider  {...settings} className="soluciones-slider">
             {servicios.map((servicio, index) => (
               <div
                 key={index}
-                className={`servicio-item ${index === activeIndex ? "active" : ""}`}
+                className={`servicio-item ${index === activeIndex ? "active" : ""}`} 
               >
-                <div className="servicio-card" data-aos="fade-up">
-                  {/* Contenedor de la imagen */}
+              <Tarjeta
+                Titulo={servicio.Name}
+                Imagen={servicio.Img}
+                Texto={servicio.Description}
+                Boton="Leer más"
+                BotonUrl={() => history(`/servicios`)}
+              />
+                {/* <div className="servicio-card" data-aos="fade-up">
+
                   <div className="servicio-img-container">
                     <img
                       src={servicio.Img}
@@ -241,21 +249,20 @@ const Inicio = () => {
                     />
                   </div>
 
-                  {/* Contenedor del título */}
+
                   <div className="servicio-title-container">
                     <h5 className="servicio-title">{servicio.Name}</h5>
                   </div>
 
-                  {/* Contenedor de la descripción */}
+
                   <div className="servicio-texto">
                     <div className="quill-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(servicio.Description) }} />
                   </div>
 
-                  {/* Contenedor del botón */}
                   <div className="servicio-boton">
-                    <NavLink to="/sistemgraf/servicios" className="btn-mas-info">Leer más</NavLink>
+                    <NavLink to="/servicios" className="btn-mas-info">Leer más</NavLink>
                   </div>
-                </div>
+                </div> */}
               </div>
             ))}
           </Slider>

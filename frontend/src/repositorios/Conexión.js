@@ -16,7 +16,7 @@ if (domain.includes("inteligenciaintegrada.cl")) {
 } else if (domain.includes("sistemgraf.cl")) {
   API_URL = "https://sistemgraf.cl";
 } else {
-  API_URL = "http://localhost:5000"; 
+  API_URL = "http://localhost:5001"; 
 }
 
 const getServices = () =>

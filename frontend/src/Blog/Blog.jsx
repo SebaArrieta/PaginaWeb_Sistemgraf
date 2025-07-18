@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";  
-import DOMPurify from "dompurify";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import Tarjeta from "../components/Tarjetas/Tarjeta.jsx";
 import "./Blog.css";
 import Loading from "../components/Loading";
 import AOS from "aos";
 
 import { getBlogs }  from "../repositorios/Conexión";
+
 const Blogs = () => {
   const [Blogs, setBlogs] = useState([]);
   const [isWide, setIsWide] = useState(window.innerWidth <= 1500);
   const [loading, setLoading] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,9 +23,10 @@ const Blogs = () => {
             const data = await getBlogs();
             console.log(data)
             setBlogs(data || []); // Set an empty array as fallback
-            if (data.length === 0) {
+            setLoading(false);
+            /*if (data.length === 0) {
               setLoading(false);
-            }
+            }*/
           } catch (error) {
             console.error("Error al obtener servicios:", error);
             setBlogs([]); // Prevent undefined state
@@ -61,9 +63,17 @@ const Blogs = () => {
       {loading && <Loading />} 
       <div className="row card-container">
         <h1 className="title-page">Blogs</h1>
+        <div className = "articles">
         {Blogs.map((Blog, ID) => (
-          <div key={ID} className={isWide ? "col-md-6 mb-4" : "col-md-4 mb-4"}>
-            <div className="servicio-card" data-aos="fade-up">
+          <div key={ID}>
+            <Tarjeta
+                Titulo={Blog.Name}
+                Imagen={Blog.Img}
+                Texto={Blog.Description}
+                Boton="Leer más"
+                BotonUrl={() => navigate(`/blog/${Blog.ID}`)}
+              />
+            {/* <div className="servicio-card" data-aos="fade-up">
               <div className="servicio-img-container">
                 <img
                   src={Blog.Img}
@@ -85,11 +95,12 @@ const Blogs = () => {
               </div>
 
               <div className="servicio-boton">
-                <NavLink to={`/sistemgraf/blog/${Blog.ID}`} className="btn-mas-info">Leer más</NavLink>
+                <NavLink to={`/blog/${Blog.ID}`} className="btn-mas-info">Leer más</NavLink>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
+        </div>
       </div>
   </div>
   );

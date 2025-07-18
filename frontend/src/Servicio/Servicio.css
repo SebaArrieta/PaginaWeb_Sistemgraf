@@ -6,6 +6,15 @@
   align-items: center;
 }
 
+.servicio-texto {
+  max-height: 180px;
+  overflow-y: auto;
+  word-break: break-word;
+  padding-right: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
 /* Animación Fade-in */
 @keyframes fadeIn {
   from {

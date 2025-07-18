@@ -15,10 +15,10 @@ export default function Footer() {
           <div className="col-lg-4 col-md-6 text-start">
             <h5>Enlaces</h5>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/sistemgraf/inicio" className="text-white">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="/sistemgraf/servicios" className="text-white">Servicios</Nav.Link>
-              <Nav.Link as={Link} to="/sistemgraf/blog" className="text-white">Blog</Nav.Link>
-              <Nav.Link as={Link} to="/sistemgraf/nosotros" className="text-white">Nosotros</Nav.Link>
+              <Nav.Link as={Link} to="/inicio" className="text-white">Inicio</Nav.Link>
+              <Nav.Link as={Link} to="/servicios" className="text-white">Servicios</Nav.Link>
+              <Nav.Link as={Link} to="/blog" className="text-white">Blog</Nav.Link>
+              <Nav.Link as={Link} to="/nosotros" className="text-white">Nosotros</Nav.Link>
               <a 
                 href="https://inteligenciaintegrada.cl/intranet/" 
                 className="nav-link text-white" 
@@ -33,7 +33,7 @@ export default function Footer() {
           {/* Mid Section: logo*/}
           <div className="col-lg-4 col-md-12 text-center"> 
           <Navbar.Brand className="logo-container">
-            <Link to="/sistemgraf/inicio">
+            <Link to="/inicio">
               <img src={Logo} className="logo-footer" alt="Sistemgraf" />
             </Link>
           </Navbar.Brand>

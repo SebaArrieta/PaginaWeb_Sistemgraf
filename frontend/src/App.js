@@ -31,14 +31,13 @@ function App() {
       <Header />
         <Routes>
           {/* Rutas públicas */}
-          <Route path="/" element={<Navigate to="/sistemgraf/inicio" replace />} />
-          <Route path="/sistemgraf" element={<Navigate to="/sistemgraf/inicio" replace />} />
-          <Route path="/sistemgraf/inicio" element={<Inicio/>} />
-          <Route path="/sistemgraf/contact" element={<ContactForm/>} />
-          <Route path="/sistemgraf/nosotros" element={<Nosotros/>} />
-          <Route path="/sistemgraf/servicios" element={<Servicios/>} />
-          <Route path="/sistemgraf/blog" element={<Blogs/>} />
-          <Route path="/sistemgraf/blog/:id" element={<BlogDetail />} />
+          <Route path="/" element={<Navigate to="/inicio" replace />} />
+          <Route path="/inicio" element={<Inicio/>} />
+          <Route path="/contact" element={<ContactForm/>} />
+          <Route path="/nosotros" element={<Nosotros/>} />
+          <Route path="/servicios" element={<Servicios/>} />
+          <Route path="/blog" element={<Blogs/>} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
 
           <Route path="*" element={<NotFound />} />
           {/* Rutas protegidas */}

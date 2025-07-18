@@ -3,9 +3,9 @@ import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css"; 
 import "./Servicio.css"; 
 import { getServices } from "../repositorios/Conexión";
-import DOMPurify from "dompurify";
 import Loading from "../components/Loading";
 import AOS from "aos";
+import Tarjeta from "../components/Tarjetas/Tarjeta.jsx"; 
 
 const Servicios = () => {
   const history = useNavigate();
@@ -53,7 +53,7 @@ const Servicios = () => {
 
   const handleContactClick = (servicioName) => {
     const message = `Deseo saber más sobre los detalles de ${servicioName}`;
-    history(`/sistemgraf/contact?message=${encodeURIComponent(message)}.`);
+    history(`/contact?message=${encodeURIComponent(message)}.`);
   };
 
   return (
@@ -61,10 +61,20 @@ const Servicios = () => {
       {loading && <Loading />} 
 
       <div className="row justify-content-center card-container">
-        <h1 className="title-page" style={{ marginBottom: '-35px' }}>Nuestros Servicios para Potenciar tu Negocio</h1>
+        <h1 className="title-page" style={{ marginBottom: '50px' }}>Nuestros Servicios para Potenciar tu Negocio</h1>
+        <div className = "articles">
         {servicios.map((servicio) => {
           return (
-            <div key={servicio.ID} className={isWide ? "col-md-6 mb-4" : "col-md-4 mb-4"}>
+            <div key={servicio.ID}>
+              <Tarjeta
+                Titulo={servicio.Name}
+                Imagen={servicio.Img}
+                Texto={servicio.Content}
+                Boton="Contáctenos"
+                BotonUrl={() => handleContactClick(servicio.Name)}
+              />
+              {/* 
+              
               <div className="servicio-card custom-servicio-card" data-aos="fade-up">
                 <div className="servicio-img-container">
                   <img
@@ -92,10 +102,11 @@ const Servicios = () => {
                       Contáctenos
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

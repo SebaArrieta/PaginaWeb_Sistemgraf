@@ -40,8 +40,8 @@
 
 @media (max-width: 768px) {
     .servicio-card {
-        max-width: 500px; /* Ajuste de ancho */
-        height: 560px;
+        max-width: 300px; /* Ajuste de ancho */
+        height: 700px;
     }
 
     .modServicio-items {

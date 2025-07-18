@@ -29,7 +29,7 @@ export default function Header() {
     >
       <div className="contenedor-navbar">
           {/* Marca (logo + texto) */}
-          <Navbar.Brand as={Link} to="/sistemgraf/inicio" className="contenedor-img">
+          <Navbar.Brand as={Link} to="/inicio" className="contenedor-img">
             <img
                 src={Logo}
                 className='logo img'
@@ -46,28 +46,28 @@ export default function Header() {
             {/* Links colapsables en pantallas pequeñas */}
             <Navbar.Collapse id="basic-navbar-nav" in={isMenuOpen}>
               <Nav className="contenedor-botones"> 
-                  <NavLink to="/sistemgraf/inicio" 
+                  <NavLink to="/inicio" 
                     className={({ isActive }) => 
                       isActive ? "nav-links active-link filled-link" : "nav-links"
                     }
                   >
                   Inicio
                   </NavLink>
-                  <NavLink to="/sistemgraf/servicios" 
+                  <NavLink to="/servicios" 
                     className={({ isActive }) => 
                       isActive ? "nav-links active-link filled-link" : "nav-links"
                     }
                   >
                       Servicios
                   </NavLink>
-                  <NavLink to="/sistemgraf/blog" 
+                  <NavLink to="/blog" 
                     className={({ isActive }) => 
                       isActive ? "nav-links active-link filled-link" : "nav-links"
                     }
                   >
                       Blog
                   </NavLink>
-                  <NavLink to="/sistemgraf/nosotros"                  
+                  <NavLink to="/nosotros"                  
                   className={({ isActive }) => 
                       isActive ? "nav-links active-link filled-link" : "nav-links"
                     }
@@ -89,7 +89,7 @@ export default function Header() {
             </div>
 
             {/* Botón de Contacto */}
-            <NavLink to="/sistemgraf/contact" className="contact-button" onClick={closeMenu}>
+            <NavLink to="/contact" className="contact-button" onClick={closeMenu}>
               Contactar
             </NavLink>
 

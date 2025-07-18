@@ -7,7 +7,7 @@ const app = express();
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',');
 
 app.use(cors({
-    origin: allowedOrigins, // Permitir solicitudes desde el frontend
+    //origin: allowedOrigins, // Permitir solicitudes desde el frontend
     credentials: true, // Permitir el envío de cookies
 }));
 

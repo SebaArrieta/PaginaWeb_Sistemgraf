@@ -287,13 +287,20 @@
 /*---------------------------NUESTRAS SOLUCIONES------------------------------*/
 /*---------------------------------------------------------------------------*/
 
+.articles {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
 
 .soluciones-container {
     width: 100%;
     height: auto;
     margin: auto;
-    padding: 50px 20px;
-    background: linear-gradient(to top, var(--color-azulClaro) 30%, var(--color-azulOscuro) 100%); /* Degradado */
+    background: linear-gradient(to top, var(--color-azulClaro) 0%, var(--color-azulOscuro) 100%); /* Degradado */
     text-align: center;
 }
 
@@ -332,17 +339,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    height: 750px; 
+    margin: 0 20px;
     transition: transform 0.5s ease-in-out;
 }
+
 
 /* Asegurar que la tarjeta activa se destaque y quede bien alineada */
 .slick-center .servicio-card {
     transform: scale(1.1); /* Aumenta ligeramente la tarjeta activa */
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
 }
-
 
 .slick-prev,
 .slick-next {
@@ -368,100 +374,26 @@
     font-size: 50px;
 }
 
-
-/* Tarjetas de servicio */
-.servicio-card {
-    margin: 0 auto;
-    background: white;
-    margin-top: 90px;
-    text-align: left; /* Alinear texto a la izquierda */
-    max-width: 380px; /* Ajuste de ancho */
-    height: 550px; /* Hacer la tarjeta más alargada */
-    transition: all 0.5s ease;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    overflow: hidden;
+.soluciones-slider .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 0; /* Elimina márgenes laterales que pueden descentrar */
+  margin-bottom: 20px;
 }
 
-/* Efecto para la tarjeta activa */
-.servicio-item.active .servicio-card {
-    transform: scale(1.05);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+.soluciones-slider .slick-slide > * {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
-/* 📌 Imagen de la tarjeta */
-.servicio-img-container {
-    width: 100%;
-    height: 160px; /* Reducimos el tamaño de la imagen */
-    overflow: hidden;
+.soluciones-slider .slick-track {
+  display: flex !important;
+  gap: 32px; /* Ajusta el espacio entre tarjetas */
 }
-
-.servicio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Contenedor del título */
-.servicio-title-container {
-    height: auto;
-    display: flex;
-    padding: 15px;
-    align-content: center;
-    justify-content: center;
-}
-
-/* Estilo Título */
-.servicio-title {
-    font-family: 'Rubik', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-/* Contenedor de la descripción */
-.servicio-texto {
-    flex-grow: 1;
-    width: 350px;
-    height: 250px;
-    padding: 0px 5px;
-    overflow: hidden;
-    margin: auto;
-    text-overflow: ellipsis;
-}
-
-/* Contenedor de Botón */
-.servicio-boton {
-    height: 50px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/*  Botón "Leer más" */
-.btn-mas-info {
-    background-color: var(--color-amarilloSistemgraf); /* Color oscuro para parecerse al de la referencia */
-    color: black !important;
-    text-decoration: none !important;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: transform 0.2s ease-in-out;
-}
-
-.btn-mas-info:hover {
-    transform: scale(1.05);
-}
-
 
 /*-----------------------------------------------------------------------------*/
 /*-------------------------SOCIOS ESTRATEGICOS--------------------------------*/
